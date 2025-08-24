@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "_MerchantLayout";
+    ViewData["Title"] = "إدارة العروض والخصومات";
+    var activeOffers = ViewData["ActiveOffers"] as List<E_Mall.Models.Offer>;
+    var expiredOffers = ViewData["ExpiredOffers"] as List<E_Mall.Models.Offer>;
+}
+
+<link rel="stylesheet" href="~/css/offermanagement.css">
+
+<div class="offer-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="actions">
+        <a asp-action="CreateO" class="btn btn-primary dashboard-btn">إنشاء عرض جديد</a>
+    </div>
+
+    <div class="offer-reports-section">
+        <h2>العروض النشطة</h2>
+        <table class="offer-reports-table">
+            <thead>
+                <tr>
+                    <th>اسم العرض</th>
+                    <th>نوع العرض</th>
+                    <th>قيمة العرض</th>
+                    <th>تاريخ البداية</th>
+                    <th>تاريخ الانتهاء</th>
+                    <th>كود الكوبون</th>
+                    <th>عدد الاستخدامات</th>
+                    <th>المبلغ الإجمالي للخصومات</th>
+                    <th>الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (activeOffers != null && activeOffers.Count > 0)
+                {
+                    foreach (var offer in activeOffers)
+                    {
+                        <tr>
+                            <td>@offer.Name</td>
+                            <td>@offer.Type</td>
+                            <td>@offer.Value @(offer.Type == "خصم على المنتج" ? "%" : "ر.س")</td>
+                            <td>@offer.StartDate.ToShortDateString()</td>
+                            <td>@offer.EndDate.ToShortDateString()</td>
+                            <td>@(string.IsNullOrEmpty(offer.CouponCode) ? "-" : offer.CouponCode)</td>
+                            <td>@offer.UsageCount</td>
+                            <td>@offer.TotalDiscountAmount ر.س</td>
+                            <td>
+                                <a asp-action="EditO" asp-route-id="@offer.Id" class="btn btn-sm btn-primary">تعديل</a>
+                                <a asp-action="DetailsO" asp-route-id="@offer.Id" class="btn btn-sm btn-info">تفاصيل</a>
+                                <a asp-action="DeleteO" asp-route-id="@offer.Id" class="btn btn-sm btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center">لا توجد عروض نشطة حاليًا</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="offer-reports-section">
+        <h2>العروض المنتهية</h2>
+        <table class="offer-reports-table">
+            <thead>
+                <tr>
+                    <th>اسم العرض</th>
+                    <th>نوع العرض</th>
+                    <th>قيمة العرض</th>
+                    <th>تاريخ البداية</th>
+                    <th>تاريخ الانتهاء</th>
+                    <th>كود الكوبون</th>
+                    <th>عدد الاستخدامات</th>
+                    <th>المبلغ الإجمالي للخصومات</th>
+                    <th>الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (expiredOffers != null && expiredOffers.Count > 0)
+                {
+                    foreach (var offer in expiredOffers)
+                    {
+                        <tr>
+                            <td>@offer.Name</td>
+                            <td>@offer.Type</td>
+                            <td>@offer.Value @(offer.Type == "خصم على المنتج" ? "%" : "ر.س")</td>
+                            <td>@offer.StartDate.ToShortDateString()</td>
+                            <td>@offer.EndDate.ToShortDateString()</td>
+                            <td>@(string.IsNullOrEmpty(offer.CouponCode) ? "-" : offer.CouponCode)</td>
+                            <td>@offer.UsageCount</td>
+                            <td>@offer.TotalDiscountAmount ر.س</td>
+                            <td>
+                                <a asp-action="DetailsO" asp-route-id="@offer.Id" class="btn btn-sm btn-info">تفاصيل</a>
+                                <a asp-action="DeleteO" asp-route-id="@offer.Id" class="btn btn-sm btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center">لا توجد عروض منتهية</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

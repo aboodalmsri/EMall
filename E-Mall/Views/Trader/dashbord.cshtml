@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "_MerchantLayout";
+    ViewData["Title"] = "لوحة تحكم التاجر";
+}
+
+<link rel="stylesheet" href="~/css/dashboard.css">
+
+<div class="dashboard-container">
+    <h1 style="text-align:center;">@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    نظرة عامة على المبيعات
+                </div>
+                <div class="dashboard-card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="stat-box">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h3>إجمالي المبيعات</h3>
+                                <p>45,000 ر.س</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-box">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h3>عدد الطلبات</h3>
+                                <p>250 طلب</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-box">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>متوسط قيمة الطلب</h3>
+                                <p>180 ر.س</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-box">
+                                <i class="fas fa-users"></i>
+                                <h3>عدد الزوار</h3>
+                                <p>1200 زائر</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    الإشعارات والتنبيهات
+                </div>
+                <div class="dashboard-card-body">
+                    <ul class="notifications">
+                        <li><i class="fas fa-exclamation-triangle"></i> طلب جديد: #2024005</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> مشكلة في الطلب: #2024003</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    إحصائيات الطلبات
+                </div>
+                <div class="dashboard-card-body">
+                    <img src="https://via.placeholder.com/800x200" alt="رسم بياني للطلبات" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

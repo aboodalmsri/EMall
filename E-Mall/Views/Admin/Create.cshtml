@@ -1,0 +1,65 @@
+﻿@model E_Mall.Models.DeliveryDriver
+
+@{
+    Layout = "_AdminLayout";
+
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DeliveryDriver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">الاسم الأول</label>
+                <input name="FirstName" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">الاسم الأخير</label>
+                <input name="LastName" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">البريد الإلكتروني</label>
+                <input name="DriverEmail" class="form-control" type="email" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">رقم الهاتف</label>
+                <input name="DriverPhone" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">معلومات السيارة</label>
+                <input name="DriverCarInfo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">منطقة التغطية</label>
+                <input name="CoverageArea" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">كلمة المرور</label>
+                <input name="Password" class="form-control" type="password" required />
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" name="IsActive" type="checkbox" value="true" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="DeliveryDriverManagement">الرجوع إلى القائمة</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

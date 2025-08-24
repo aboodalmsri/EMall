@@ -1,0 +1,107 @@
+﻿/* ==========================================================================
+   User Reviews Management Styles
+   ========================================================================== */
+
+.user-reviews-management-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+/* Add Section style for filter*/
+.filter-search-section {
+    margin-bottom: 1.875rem; /* 30px = 1.875rem */
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+}
+
+    .filter-search-section h2 {
+        margin-bottom: 0.9375rem; /* 15px = 0.9375rem */
+        color: #333;
+        font-size: 1.5rem; /* Scale title */
+    }
+/*Adjust the display the form element as a new style and better*/
+.form-group {
+    margin-bottom: 1rem; /*Reduce bottom*/
+}
+
+/*Add Responsive Styles*/
+.user-reviews-list-section {
+    box-sizing: border-box; /*Adapt layout to small screens*/
+}
+
+.review-card {
+    margin-bottom: 1rem;
+    padding: 1.25rem; /* 20px */
+    border: 1px solid #eee;
+    border-radius: 0.5rem; /* 8px */
+    background-color: #fff; /* To match to desing*/
+    font-family: serif;
+}
+
+.user-reviews-list-section h2 {
+    margin-bottom: 0.9375rem;
+    color: #333;
+    font-size: 1.5rem; /*Adjust Size*/
+}
+
+.review-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.user-table th, .user-table td {
+    padding: 0.5rem; /* 8px */
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.review-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/*Define the size style*/
+.star {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+    .user-reviews-management-container {
+        width: 95%; /*Take the Full view screens*/
+        margin: 20px auto;
+        padding: 10px; /* Scale To more adaptative the small*/
+    }
+
+    .user-reviews-list-section h2 {
+        font-size: 1rem; /*Scale element smaller phones*/
+    }
+
+    .filter-search-section .col-md-4,
+    .review-section .col-md-12 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    /*Make it responsive*/
+    .form-control {
+        width: 95%; /*Scale element smaller phones*/
+        margin-bottom: 5px; /*Create space between it*/
+    }
+
+    .reports-container {
+        padding: 15px; /* reduce the space*/
+    }
+    /*Style The Title*/
+    .user-list-section h2,
+    .user-creation-section h2 {
+        font-size: 1rem; /* Scale title phone*/
+    }
+}

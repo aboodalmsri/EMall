@@ -1,0 +1,146 @@
+﻿/* ==========================================================================
+   Reports Styles
+   ========================================================================== */
+
+.reports-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 1.25rem auto; /* 20px = 1.25rem */
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #f9f9f9;
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.08); /* 10px = 0.625rem */
+    font-family: sans-serif;
+}
+
+.report-card {
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    text-align: center;
+    margin-bottom: 1.25rem; /* 20px = 1.25rem */
+}
+
+    .report-card h3 {
+        margin-bottom: 0.625rem; /* 10px = 0.625rem */
+        color: #333;
+        font-size: 1.2rem; /* Scale title */
+    }
+
+    .report-card p {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .report-card i {
+        font-size: 2.5rem; /* 40px = 2.5rem */
+        color: #807262;
+        margin-top: 0.625rem; /* 10px = 0.625rem */
+    }
+
+.report-section {
+    margin-bottom: 1.875rem; /* 30px = 1.875rem */
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+}
+
+    .report-section h2 {
+        margin-bottom: 0.9375rem; /* 15px = 0.9375rem */
+        color: #333;
+        font-size: 1.5rem; /* Scale title */
+    }
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .report-table th,
+    .report-table td {
+        padding: 0.5rem; /* 8px = 0.5rem */
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .report-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+.star {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for small devices */
+@media (max-width: 767px) {
+    .reports-container {
+        padding: 1rem; /* 16px */
+    }
+
+    .report-card {
+        padding: 1rem; /* Adjust padding */
+        font-size: 0.8rem; /*ScaleDown the size */
+    }
+
+    .report-section {
+        padding: 1rem; /* Adjust padding */
+        font-size: 0.8rem; /*ScaleDown the size */
+    }
+
+    .report-table th, .report-table td {
+        padding: 0.4rem; /* Adjust padding */
+        font-size: 0.8rem; /*ScaleDown the size */
+    }
+
+    .report-card h3,
+    .report-section h2 {
+        font-size: 1.2rem; /* Scale titles */
+    }
+
+    .report-card i {
+        font-size: 2rem; /* Smaller icons */
+    }
+}
+
+/* For tablets and medium screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .report-card {
+        font-size: 1rem; /* scaleup the font size */
+    }
+
+    .report-section {
+        font-size: 1rem; /* scaleup the font size */
+    }
+
+    .report-table th,
+    .report-table td {
+        font-size: 1rem;
+    }
+
+    .report-card h3, .report-section h2 {
+        font-size: 1.4rem; /* scaleup the title size*/
+    }
+}
+/* For very large screens */
+@media (min-width: 1200px) {
+    .report-card {
+        font-size: 1.1rem; /* scaleup the font size */
+        padding: 1.5rem; /* Larger spaces */
+    }
+
+    .report-section {
+        font-size: 1.1rem; /* scaleup the font size */
+        padding: 1.5rem; /* Larger spaces */
+    }
+
+    .report-table th,
+    .report-table td {
+        font-size: 1.1rem;
+        padding: 0.7rem; /* Increase text spacing more large*/
+    }
+}

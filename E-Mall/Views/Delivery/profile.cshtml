@@ -1,0 +1,83 @@
+﻿@model E_Mall.Models.ProfileViewModel
+@{
+    Layout = "_DeliveryLayout";
+    ViewData["Title"] = "الملف الشخصي";
+}
+
+<link rel="stylesheet" href="~/css/profile.css">
+
+<div class="profile-container">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-card">
+                <img src="~/img/nopp.jpg" alt="صورة الملف الشخصي" class="profile-image">
+                <h3>@Model.FirstName @Model.LastName</h3>
+                <p>@Model.Email</p>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="profile-form">
+                <h2>تعديل المعلومات الشخصية</h2>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="FirstName">اسم المستخدم</label>
+                        <input asp-for="FirstName" class="form-control" value="@Model.FirstName" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="LastName">اسم العائله</label>
+                        <input asp-for="LastName" class="form-control" value="@Model.LastName" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email">البريد الإلكتروني</label>
+                        <input asp-for="Email" class="form-control" value="@Model.Email" readonly />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        @* Added a readonly to make the email not easily edited *@
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber">رقم الهاتف</label>
+                        <input asp-for="PhoneNumber" class="form-control" value="@Model.PhoneNumber" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary dashboard-btn">حفظ التغييرات</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profile-rating">
+                <h2>تقييمك في الموقع</h2>
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                </div>
+                <p>متوسط تقييمك: 3/5</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

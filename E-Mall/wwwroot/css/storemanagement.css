@@ -1,0 +1,49 @@
+﻿.store-management-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    font-family: sans-serif;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.store-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.store-table th, .store-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+}
+
+.store-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.actions a {
+    margin-right: 5px;
+}
+
+/* استايلات للشاشات الصغيرة */
+@media (max-width: 767px) {
+    .store-management-container {
+        padding: 15px;
+    }
+    .store-table th, .store-table td {
+        font-size: 14px;
+    }
+    .actions a {
+        display: block;
+        margin-bottom: 5px;
+    }
+}

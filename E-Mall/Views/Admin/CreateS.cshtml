@@ -1,0 +1,120 @@
+﻿@model E_Mall.Models.AddStoreModel
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "إنشاء متجر جديد";
+}
+<link rel="stylesheet" href="~/css/storemanagement.css" />
+
+<div class="row">
+    <div class="store-management-container">
+        <h2 class="text-center mb-5">@ViewBag.Title</h2>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">التاجر</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="MerchantId" asp-items="ViewBag.MerchantId">
+                        <option value="">اختر التاجر</option>
+                    </select>
+                    <span asp-validation-for="MerchantId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">اسم المتجر</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">الوصف</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Description" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">مكان التواجد</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Location" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">شعار المتجر</label>
+                <div class="col-sm-8">
+                    <input type="file" class="form-control" asp-for="Logo" />
+                    <span asp-validation-for="Logo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">غلاف المتجر</label>
+                <div class="col-sm-8">
+                    <input type="file" class="form-control" asp-for="CoverImage" />
+                    <span asp-validation-for="CoverImage" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">عدد المنتجات المسموح بنشرها</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="ProductCount" />
+                    <span asp-validation-for="ProductCount" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">الصنف</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="CategoryId" asp-items="ViewBag.CategoryId">
+                        <option value="">اختر الصنف</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">نشط ؟</label>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="IsActive" />
+                        <label class="form-check-label" for="IsActive">نعم</label>
+                    </div>
+                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">مميز ؟</label>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="Featured" />
+                        <label class="form-check-label" for="Featured">نعم</label>
+                    </div>
+                    <span asp-validation-for="Featured" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">انشاء متجر</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="StoreManagement" role="button">
+                        إلغاء
+                    </a>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+</div>

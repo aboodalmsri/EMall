@@ -1,0 +1,122 @@
+﻿/* Contact Us Page Styles */
+
+.contact-us-page {
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+    .contact-us-page h1 {
+        color: #625a4e; /* Accent color for titles */
+    }
+
+    .contact-us-page h3 {
+        color: #807262; /* A little lighter shade for smaller titles */
+    }
+
+/* Style Contact Info */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .contact-info p {
+        margin-bottom: 0.5rem; /* Reduce bottom Margin*/
+    }
+
+    .contact-info a {
+        color: #495057; /* Darken link for readability */
+        text-decoration: none; /*Reset Text underline*/
+    }
+
+        .contact-info a:hover {
+            text-decoration: underline; /*ShowUnderline On hover*/
+        }
+/* Add New Style Stats Box To it*/
+.stat-box {
+    background: #f4f4f4;
+    margin-bottom: 20px; /*Put space between each item*/
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+    .stat-box:hover {
+        transform: translateY(-5px);
+    }
+
+.star {
+    display: inline-block;
+    font-size: 1.2em; /* Scale the sizes*/
+    color: #ffc107;
+    margin-bottom: 0.5rem; /* make some space to align in the middles*/
+}
+
+/* Style the icons */
+.contact-info i {
+    font-size: 2.3rem;
+    color: #007bff;
+    margin-bottom: 0.8rem;
+    /* Adjust the icon to position vertically */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contact-form .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtler shadow */
+}
+
+.contact-form .card-body {
+    padding: 2rem; /* Increase spacing */
+}
+
+/* Adjust padding and size of form elements */
+.form-control {
+    border-color: #ced4da; /* Default text color */
+    padding: 0.75rem; /* Adjust padding  smaller screens*/
+    font-size: 1rem; /*Scale text for all*/
+}
+/* Set the correct size and fix mobile screens*/
+.form-label {
+    color: #343a40;
+}
+/*Add responsive Style for phone screens*/
+@media (max-width: 768px) {
+    .contact-info {
+        display: block;
+        text-align: center;
+    }
+
+        .contact-info h3 {
+            text-align: center; /*Center data in smaller width device*/
+            display: block; /*display data vertically*/
+        }
+        /*Make text smallr*/
+        .contact-info p {
+            font-size: 0.9rem; /*Adjust paragraph phone */
+        }
+    /*Ajust size in a small scale*/
+    .contact-form .card-body {
+        padding: 1rem; /*Less padding*/
+    }
+    /*Fix the size*/
+    .stat-box {
+        text-align: center; /*Centralization content to all section*/
+    }
+
+        .stat-box i, .stat-box .fas { /*Style fontawsome*/
+            display: block; /*The data element has been shown for all the elements*/
+            font-size: 2rem; /*Scaling Font a little smaller*/
+            margin: 0.5rem auto; /*Make center and has space below the elemetn*/
+        }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.8rem;
+    }
+}

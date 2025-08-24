@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_DeliveryLayout";
+
+    ViewData["Title"] = "الطلبات المتاحة";
+}
+
+<link rel="stylesheet" href="~/css/availableorders.css">
+
+<div class="available-orders-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="order-list">
+        <!-- Example Order Item (Repeat for each available order) -->
+        <div class="order-item">
+            <div class="order-header">
+                <h2>رقم الطلب: #2024006</h2>
+                <p>تاريخ الطلب: 2024/07/26</p>
+                <p>المسافة: 2 كم</p>
+            </div>
+            <div class="order-details">
+                <p>الزبون: Layla Ahmed</p>
+                <p>المنتجات: فستان، حذاء</p>
+                <p>المبلغ الإجمالي: 300 ر.س</p>
+                <p>عنوان التسليم: الرياض، حي الصحافة</p>
+            </div>
+            <div class="order-actions">
+                <button class="btn btn-success">قبول الطلب</button>
+                <button class="btn btn-danger">رفض الطلب</button>
+                <button class="btn btn-outline-secondary">عرض التفاصيل</button>
+            </div>
+        </div>
+
+        <!-- Example Order Item 2 (Repeat for each available order) -->
+        <div class="order-item">
+            <div class="order-header">
+                <h2>رقم الطلب: #2024007</h2>
+                <p>تاريخ الطلب: 2024/07/26</p>
+                <p>المسافة: 5 كم</p>
+            </div>
+            <div class="order-details">
+                <p>الزبون: Mohammed Ali</p>
+                <p>المنتجات: قميص، بنطلون</p>
+                <p>المبلغ الإجمالي: 250 ر.س</p>
+                <p>عنوان التسليم: جدة، حي الفيصلية</p>
+            </div>
+            <div class="order-actions">
+                <button class="btn btn-success">قبول الطلب</button>
+                <button class="btn btn-danger">رفض الطلب</button>
+                <button class="btn btn-outline-secondary">عرض التفاصيل</button>
+            </div>
+        </div>
+    </div>
+</div>

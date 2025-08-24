@@ -1,0 +1,214 @@
+﻿/* ==========================================================================
+   Cart Styles (Based on Image Design)
+   ========================================================================== */
+
+.cart-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 1.25rem auto; /* 20px = 1.25rem (based on 16px font size) */
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #f2f0ed; /* Light background */
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.08); /* 10px = 0.625rem */
+    font-family: sans-serif; /* Overall Font */
+}
+
+.cart-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #333; /* Darker Text */
+    border-collapse: collapse;
+}
+
+    .cart-table th,
+    .cart-table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #ddd; /* Lighter Border */
+        text-align: center; /* Centered text in cells */
+    }
+
+    .cart-table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #ddd; /* Stronger bottom border */
+        background-color: #f9f9f9; /* Slightly different head bg */
+        font-weight: bold;
+    }
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+}
+
+.cart-item-image {
+    width: 4rem; /* Smaller Image */
+    height: 4rem; /* Smaller Image */
+    object-fit: cover;
+    border-radius: 0.25rem; /* 4px = 0.25rem */
+    margin-right: 0.625rem; /* 10px = 0.625rem */
+}
+
+/* Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the controls */
+}
+
+.quantity-button {
+    display: inline-block;
+    padding: 0.2rem 0.4rem; /* Smaller buttons */
+    font-size: 0.8rem; /* Smaller font */
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #eee; /* Light Gray */
+    border: 1px solid #ccc; /* Medium Gray */
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    margin: 0 0.15rem; /* Reduced margin */
+    line-height: 1; /* Adjust line height */
+}
+
+    .quantity-button:hover {
+        background-color: #ddd;
+        border-color: #bbb;
+    }
+
+.quantity-input {
+    width: 2.5rem; /* Smaller Input */
+    padding: 0.2rem; /* Reduced Padding */
+    font-size: 0.8rem; /* Smaller Font */
+    line-height: 1.2;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    text-align: center;
+    margin: 0 0.15rem; /* Reduced Margin */
+}
+
+.remove-item {
+    color: #d9534f; /*Red color*/
+    text-decoration: none;
+    font-size: 0.85rem; /* Slightly reduced size */
+}
+
+    .remove-item:hover {
+        color: #c9302c; /* Darker Red */
+        text-decoration: underline;
+    }
+
+/*Summary*/
+.cart-summary {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9; /* Light Summary Background */
+    border-radius: 0.5rem;
+}
+
+    .cart-summary p {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #3c763d; /*Green*/
+    }
+
+    .cart-summary span {
+        color: #3c763d; /*Green*/
+    }
+
+/* Responsive adjustments for small screens (reverted) */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: center; /* Center items */
+    }
+    /* Make Image Responsive */
+    .cart-item-image {
+        width: 100%;
+        max-width: 70px;
+        margin-bottom: 0.5rem;
+    }
+    /*Table alignment*/
+    .cart-table th, .cart-table td {
+        text-align: center;
+        padding: 0.5rem; /* Smaller padding on small screens */
+    }
+
+    .quantity-button {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.7rem;
+    }
+}
+/* Tablets and smaller desktop screens adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+    .cart-container {
+        width: 98%;
+        max-width: none;
+        font-size: 0.9rem; /* Slightly reduce the font */
+    }
+
+    .cart-table {
+        font-size: 0.9rem;
+    }
+
+    .cart-item-image {
+        width: 3.5rem; /* Reduce image */
+        height: 3.5rem; /* Reduce image */
+    }
+
+    .quantity-button {
+        padding: 0.15rem 0.3rem; /* Adjust padding */
+        font-size: 0.8rem; /* Adjust font */
+    }
+
+    .quantity-input {
+        width: 2rem; /* Adjust width */
+        font-size: 0.8rem; /* Adjust font */
+    }
+
+    .cart-table th,
+    .cart-table td {
+        text-align: center;
+    }
+
+    .cart-table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+        background-color: #f2f0f4;
+    }
+}
+
+/* Larger screens adjustments */
+@media (min-width: 992px) {
+    .cart-container {
+        font-size: 1rem; /* Revert font to a standard size */
+        width: 90%;
+    }
+
+    .cart-item-image {
+        width: 4rem; /* Revert image size */
+        height: 4rem; /* Revert image size */
+    }
+}
+
+/* Dashboard Button Style */
+.btn.dashboard-btn.cart-checkout-button {
+    background-color: #eee;
+    border-color: #ccc;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+    .btn.dashboard-btn.cart-checkout-button:hover {
+        background-color: #ddd;
+        border-color: #bbb;
+        color: #444;
+    }

@@ -1,0 +1,54 @@
+﻿@model List<E_Mall.Models.Contact>
+
+@{
+    Layout = "_CustomerLayout";
+    ViewBag.Title = "بلاغاتي";
+}
+
+<h2 class="text-center">بلاغاتي</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-warning text-center">@ViewBag.Message</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center align-middle">الأسم</th>
+                    <th class="text-center align-middle">الموضوع</th>
+                    <th class="text-center align-middle">الرسالة</th>
+                    <th class="text-center align-middle">تاريخ الإرسال</th>
+                    <th class="text-center align-middle">حالة الرد</th>
+                    <th class="text-center align-middle">رد الأدمن</th>
+                    <th class="text-center align-middle">تاريخ رد الأدمن</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var feedback in Model)
+                {
+                    <tr>
+                        <td class="text-center align-middle">@feedback.Name</td>
+                        <td class="text-center align-middle">@feedback.Subject</td>
+                        <td class="text-center align-middle">@feedback.Message</td>
+                        <td class="text-center align-middle">@feedback.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td class="text-center align-middle">
+                            @if (feedback.IsReplied)
+                            {
+                                <span class="badge bg-success">تم الرد</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">لم يتم الرد</span>
+                            }
+                        </td>
+                        <td class="text-center align-middle">@feedback.ReplyMessage</td>
+                        <td class="text-center align-middle">@feedback.RepliedAt?.ToString("yyyy-MM-dd HH:mm")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

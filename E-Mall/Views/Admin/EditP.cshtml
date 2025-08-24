@@ -1,0 +1,64 @@
+﻿@model E_Mall.Models.Product
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "تعديل المنتج";
+}
+<link rel="stylesheet" href="~/css/storemanagement.css" />
+
+<div class="store-management-container">
+    <h2 class="text-center mb-5">@ViewBag.Title</h2>
+
+    <form asp-action="EditP" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category" class="control-label"></label>
+            <input asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Featured" /> @Html.DisplayNameFor(model => model.Featured)
+            </label>
+        </div>
+        <div class="form-group">
+            <label asp-for="QuantityInStock" class="control-label"></label>
+            <input asp-for="QuantityInStock" class="form-control" />
+            <span asp-validation-for="QuantityInStock" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="HaveDiscount" /> @Html.DisplayNameFor(model => model.HaveDiscount)
+            </label>
+        </div>
+
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsNew" /> @Html.DisplayNameFor(model => model.IsNew)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="حفظ" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="ProductManagement">العودة إلى القائمة</a>
+</div>

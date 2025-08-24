@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_MerchantLayout";
+
+    ViewData["Title"] = "إدارة الطلبات";
+}
+
+<link rel="stylesheet" href="~/css/ordermanagement.css">
+
+<div class="order-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="order-filters">
+        <button class="btn btn-outline-primary" data-status="new">الطلبات الجديدة</button>
+        <button class="btn btn-outline-primary" data-status="processing">قيد المعالجة</button>
+        <button class="btn btn-outline-primary" data-status="completed">المكتملة</button>
+        <button class="btn btn-outline-primary" data-status="cancelled">الملغاة</button>
+    </div>
+
+    <div class="order-list">
+        <!-- Example Order Item (Repeat for each order) -->
+        <div class="order-item" data-status="new">
+            <div class="order-header">
+                <h2>رقم الطلب: #2024005</h2>
+                <p>تاريخ الطلب: 2024/07/25</p>
+                <p>الزبون: Ahmed Khaled</p>
+            </div>
+            <div class="order-details">
+                <p>المنتجات: تي شيرت قطني، بنطلون جينز</p>
+                <p>المبلغ الإجمالي: 200 ر.س</p>
+                <p>عنوان الشحن: الرياض، حي الملقا</p>
+            </div>
+            <div class="order-actions">
+                <select class="form-control">
+                    <option>جديد</option>
+                    <option>قيد المعالجة</option>
+                    <option>تم التوصيل</option>
+                    <option>تم الإلغاء</option>
+                </select>
+                <button class="btn btn-secondary">تواصل مع الزبون</button>
+            </div>
+        </div>
+
+        <!-- Example Order Item 2 (Repeat for each order) -->
+        <div class="order-item" data-status="processing">
+            <div class="order-header">
+                <h2>رقم الطلب: #2024004</h2>
+                <p>تاريخ الطلب: 2024/07/22</p>
+                <p>الزبون: Sara Ahmed</p>
+            </div>
+            <div class="order-details">
+                <p>المنتجات: حذاء رياضي، حقيبة يد</p>
+                <p>المبلغ الإجمالي: 450 ر.س</p>
+                <p>عنوان الشحن: جدة، حي الحمراء</p>
+            </div>
+            <div class="order-actions">
+                <select class="form-control">
+                    <option>جديد</option>
+                    <option selected>قيد المعالجة</option>
+                    <option>تم التوصيل</option>
+                    <option>تم الإلغاء</option>
+                </select>
+                <button class="btn btn-secondary">تواصل مع الزبون</button>
+            </div>
+        </div>
+    </div>
+</div>

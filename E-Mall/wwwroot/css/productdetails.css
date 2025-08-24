@@ -1,0 +1,166 @@
+﻿/* ==========================================================================
+   Product Details Styles
+   ========================================================================== */
+
+.product-details-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-title {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-price {
+    margin-bottom: 15px;
+    color: #807262; /* Replace #777 with the dark tone */
+    font-size: 1.2em;
+}
+
+.product-store {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+    .product-store a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .product-store a:hover {
+            text-decoration: underline;
+        }
+
+.product-description {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.product-options {
+    margin-bottom: 20px;
+}
+
+    .product-options label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Quantity Section Styles */
+.product-quantity {
+    margin-bottom: 20px;
+}
+
+    .product-quantity label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-button {
+    background-color: #eee;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+    .quantity-button:hover {
+        background-color: #ddd;
+    }
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+/* Product Details */
+.product-details {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.product-describtion {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/*Responsive Class*/
+/* Mobile Styles (up to 767px) */
+@media (max-width: 767px) {
+    .product-details-container {
+        padding: 10px;
+    }
+
+    .product-image {
+        margin-bottom: 15px;
+    }
+
+    .product-options, .product-description {
+        margin-bottom: 15px;
+    }
+    /* Responsive adjustments */
+    .product-quantity {
+        margin-bottom: 15px;
+    }
+    /* Adjust style flexbox */
+    .quantity-controls {
+        display: flex;
+        flex-direction: row; /* Display horizontally */
+        align-items: center;
+        justify-content: space-between; /* Distribute items along the main axis */
+    }
+    /*Set the quantity buttons*/
+    .quantity-button {
+        width: auto;
+    }
+
+    .product-actions {
+        flex-direction: column; /* Stack the buttons vertically */
+        align-items: stretch; /* Make buttons fill the width */
+        gap: 5px; /* Reduce the gap between buttons */
+    }
+
+    .product-describtion {
+        padding: 5px;
+    }
+}

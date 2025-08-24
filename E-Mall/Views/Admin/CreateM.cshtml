@@ -1,0 +1,60 @@
+﻿@model E_Mall.Models.Merchant
+
+@{
+    ViewData["Title"] = "إضافة تاجر";
+    Layout = "_AdminLayout";
+}
+
+<link rel="stylesheet" href="~/css/MerchantManagement.css" />
+
+<div class="create-delivery-driver-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="CreateM" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="control-label">الاسم الأول</label>
+            <input type="text" name="FirstName" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label class="control-label">الاسم الأخير</label>
+            <input type="text" name="LastName" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="MerchantEmail" class="control-label">البريد الإلكتروني</label>
+            <input asp-for="MerchantEmail" class="form-control" />
+            <span asp-validation-for="MerchantEmail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">كلمة المرور</label>
+            <input type="password" name="Password" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="MerchantPhone" class="control-label">رقم الهاتف</label>
+            <input asp-for="MerchantPhone" class="form-control" />
+            <span asp-validation-for="MerchantPhone" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="StoreName" class="control-label">اسم المتجر</label>
+            <input asp-for="StoreName" class="form-control" />
+            <span asp-validation-for="StoreName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="StoreLink" class="control-label">رابط المتجر</label>
+            <input asp-for="StoreLink" class="form-control" />
+            <span asp-validation-for="StoreLink" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="إضافة" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="MerchantManagement">العودة إلى القائمة</a>
+    </div>
+</div>

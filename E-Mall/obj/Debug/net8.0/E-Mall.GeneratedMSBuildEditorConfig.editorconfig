@@ -1,0 +1,421 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = E_Mall
+build_property.RootNamespace = E_Mall
+build_property.ProjectDir = D:\E-Mall\E-Mall\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\E-Mall\E-Mall
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cY29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/CreateC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/CreateM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlTS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/CreateP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlUC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/CreateS.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlUy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/dashbord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cZGFzaGJvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/DeleteM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlTS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/DeleteP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlUC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/DeleteS.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlUy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/DeliveryDriverManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsaXZlcnlEcml2ZXJNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/EditC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/EditM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdE0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/EditP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/EditS.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/MerchantManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWVyY2hhbnRNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/ordermanagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cb3JkZXJtYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/ProductManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdE1hbmFnZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5ccHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/StoreManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RvcmVNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Admin/UserReviewsManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclJldmlld3NNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcYWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcY2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcY2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcY29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/dashbord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcZGFzaGJvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/DeliveryDrivers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGVsaXZlcnlEcml2ZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/favorite.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcZmF2b3JpdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/Myfeedbacks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTXlmZWVkYmFja3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/OrderConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcT3JkZXJDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcb3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/productdetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJccHJvZHVjdGRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJccHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJccHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/reviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJccmV2aWV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/shops.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcc2hvcHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Customer/StoreDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcU3RvcmVEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcYWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/availableorders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcYXZhaWxhYmxlb3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcY29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/dashbord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcZGFzaGJvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/orderdetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcb3JkZXJkZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlccHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/reviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlccmV2aWV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/shops.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcc2hvcHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/support.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcc3VwcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Delivery/trackroute.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlcdHJhY2tyb3V0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/DeliveryDrivers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxpdmVyeURyaXZlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwcm9kdWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Home/shops.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG9wcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_CustomerLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DdXN0b21lckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_DeliveryLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EZWxpdmVyeUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_MerchantLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZXJjaGFudExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXGFib3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXGNvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/CreateO.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXENyZWF0ZU8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/CreateP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXENyZWF0ZVAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/customermanagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXGN1c3RvbWVybWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/dashbord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXGRhc2hib3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/DeleteO.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXERlbGV0ZU8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/DeleteP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXERlbGV0ZVAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/DetailsO.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXERldGFpbHNPLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/EditO.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXEVkaXRPLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/EditP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXEVkaXRQLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/offermanagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXG9mZmVybWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/ordermanagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXG9yZGVybWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXFByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/productmanagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXHByb2R1Y3RtYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXHByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXHJlcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Trader/storesettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVyXHN0b3Jlc2V0dGluZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Mall/E-Mall/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-v4815hagjm

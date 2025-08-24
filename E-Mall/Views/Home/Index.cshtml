@@ -1,0 +1,224 @@
+﻿@model E_Mall.Models.HomePageViewModel
+@{
+    ViewData["Title"] = "Home";
+    List<E_Mall.Models.Store> storeList = Model.FeaturedStores.ToList();
+    List<E_Mall.Models.Product> productList = Model.FeaturedProducts.ToList();
+}
+<body >
+<div class="container">
+    <!-- 1. سلايدر الصور (مع خلفية مخصصة) -->
+    <div id="carouselExampleCaptions" class="carousel slide custom-slider" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                    <img src="~/img/banner1.png" class="d-block w-100" alt="panel1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>احصل على متجرك الخاص</h5>
+                    <p>من يمكنك افتتاح متجر و البيع على الانترنت بكل سهولة و يسر</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                    <img src="~/img/banner2.png" class="d-block w-100" alt="panel2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>تشكيلة جديدة</h5>
+                    <p>اكتشف أحدث المنتجات التي وصلت حديثاً.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                    <img src="~/img/banner3.png" class="d-block w-100" alt="panel3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>ابدأ عملك الآن</h5>
+                    <p>.لا تدع الفرصة تفوتك!! و ابدأ العمل على الانترنت كسائق توصيل بواسطتنا</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">السابق</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">التالي</span>
+        </button>
+    </div>
+
+    <!-- لمحة عن الموقع و ماذا به-->
+    <div class="stats-container">
+        <div class="stat-box">
+            <i class="fas fa-store"></i>
+            <h3>عدد المتاجر</h3>
+                <p>@ViewData["stores"]</p>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-users"></i>
+            <h3>عدد الزبائن</h3>
+                <p>@ViewData["customer"]</p>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-box"></i>
+            <h3>عدد المنتجات</h3>
+                <p>@ViewData["products"]</p>
+        </div>
+    </div>
+    <hr class="my-4">
+
+    <div class="parent">
+        <h2 style="padding-bottom:10px; text-align:center;">لمحة بسيطة عنا</h2>
+        <div class="con">
+
+            <div class="divv1">
+                <p style="text-align:center;">
+                    <strong style="font-size:18px;">E-Mall</strong>
+                </p>
+                <p style="text-align:center; font-size:15px; font-weight:bold;">
+                    .هو موقع الكتروني يجمع ما بين التاجر و الزبون في مكان واحد بحيث يمكن لأي شخص افتتاح متجره بسهولة و بسعر رمزي
+                </p>
+            </div>
+        </div>
+
+        <h2 style="padding-bottom:10px; text-align:center;">ميزات الموقع</h2>
+        <div class="con1">
+            <div class="divv2">
+                <p style="text-align:center;">
+                    <strong style="font-size:18px;">للتاجر</strong>
+                </p>
+                <ul>
+                    <li>متجر بسعر مناسب</li>
+                    <li>إدارة سهلة للبضاعة والطلبات</li>
+                    <li>إضافة منتجات بسهولة</li>
+                    <li>تقييم الزبائن</li>
+                    <li>رفع عدد كبير من المنتجات</li>
+                </ul>
+            </div>
+            <div class="divv3">
+                <p style="text-align:center;">
+                    <strong style="font-size:18px;">للزبون</strong>
+                </p>
+                <ul>
+                    <li>تسوق من عدة متاجر</li>
+                    <li>تجربة شراء سلسة</li>
+                    <li>تقييم المنتجات والمتاجر</li>
+                    <li>تقييم سائق التوصيل</li>
+                </ul>
+            </div>
+            <div class="divv4">
+                <p style="text-align:center;">
+                    <strong style="font-size:18px;">للدلفري</strong>
+                </p>
+                <ul>
+                    <li>توصيل محلي مرن</li>
+                    <li>شراكة مع المتاجر</li>
+                    <li>عمل فردي أو تعاقدي</li>
+                    <li>قبول أو رفض الطلبات</li>
+                    <li>تقييم الزبائن</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <hr class="my-4">
+
+    <!-- 2. قائمة المتاجر المتوفرة (سلايدر) -->
+        <h2 style="padding-bottom:10px; text-align:center;">المتاجر المميزة</h2>
+        <div id="storesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    int i = 0;
+                    List<E_Mall.Models.Store> store_row = new List<E_Mall.Models.Store>();
+                    foreach (var store in storeList)
+                    {
+                        store_row.Add(store);
+
+                        if (store_row.Count == 3 || store.Equals(storeList.Last()))
+                        {
+                            var activeClass = i++ == 0 ? "active" : ""; // Make the first card active
+                            <div class="carousel-item @activeClass">
+                                <div class="row">
+                                    @foreach (var store_col in store_row)
+                                    {
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <img src="@Url.Content($"/logos/{store_col.Logo}")" class="card-img-top" alt="@store_col.Name">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">@store_col.Name</h5>
+                                                    <p class="card-text">@store_col.Description</p>
+                                                    <a asp-controller="Customer" asp-action="StoreDetails" asp-route-id="@store_col.Id" class="btn btn-primary">اذهب إلى المتجر</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            store_row.Clear();
+                        }
+                    }
+                }
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#storesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">السابق</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#storesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">التالي</span>
+            </button>
+        </div>
+
+    <hr class="my-4">
+
+    <!-- 3. عرض منتجات الموقع (سلايدر) -->
+        <h2 style="padding-bottom:10px; text-align:center;">منتجات مميزة</h2>
+        <div id="productsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    int productIndex = 0;
+                    List<E_Mall.Models.Product> productRow = new List<E_Mall.Models.Product>();
+
+                    @for (i = 0; i < productList.Count; i++)
+                    {
+                        productRow.Add(productList[i]);
+
+                        if (productRow.Count == 4 || i == productList.Count - 1)
+                        {
+                            var activeClass = productIndex++ == 0 ? "active" : "";
+                            <div class="carousel-item @activeClass">
+                                <div class="row">
+                                    @foreach (var product in productRow)
+                                    {
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <img src="@Url.Content($"/products/{product.Image}")" class="card-img-top" alt="@product.Name">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">@product.Name</h5>
+                                                    <p class="card-text">@product.Description</p>
+                                                    <a asp-controller="Customer" asp-action="ProductDetails" asp-route-id="@product.Id" class="btn btn-primary">عرض المنتج</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            productRow.Clear();
+                        }
+                    }
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">السابق</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">التالي</span>
+            </button>
+        </div>
+</div>
+</body>

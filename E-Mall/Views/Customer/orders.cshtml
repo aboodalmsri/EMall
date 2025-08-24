@@ -1,0 +1,67 @@
+﻿@model IEnumerable<E_Mall.Models.Order>
+
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "طلباتي";
+}
+<link rel="stylesheet" href="~/css/orders.css">
+
+<div class="orders-container">
+    <h1>@ViewData["Title"]</h1>
+    @if (TempData["CMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["CMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @foreach (var order in Model)
+    {
+        <div class="order-item">
+            <div class="order-header">
+                <h2>رقم الطلب: #@order.Id</h2>
+                <p>تاريخ الطلب: @order.OrderDate.ToString("yyyy/MM/dd")</p>
+                <p>الحالة: @order.Status</p>
+            </div>
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>المنتج</th>
+                        <th>الكمية</th>
+                        <th>السعر</th>
+                        <th>المتجر</th>
+                        <th>الإجمالي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in order.OrderItems)
+                    {
+                        <tr>
+                            <td>
+                                <div class="order-product">
+                                    <img src="@Url.Content($"/products/{item.Product.Image ?? "default-product.png"}")" alt="@item.Product.Name" class="order-product-image">
+                                    <span>@item.Product.Name</span>
+                                </div>
+                            </td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price.ToString("0.00") ر.س</td>
+                            <td>@item.Product.Store?.Name</td>
+                            <td>@((item.Quantity * item.Price).ToString("0.00")) ر.س</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="order-total">
+                <p>المبلغ الإجمالي: <span>@order.TotalAmount.ToString("0.00") ر.س</span></p>
+            </div>
+            @if (order.Status == "قيد المعالجة")
+            {
+                <form asp-action="CancelOrder" asp-controller="Customer" method="post">
+                    <input type="hidden" name="orderId" value="@order.Id" />
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">إلغاء الطلب</button>
+                </form>
+            }
+        </div>
+    }
+</div>

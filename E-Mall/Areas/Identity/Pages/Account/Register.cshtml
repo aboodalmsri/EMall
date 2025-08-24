@@ -1,0 +1,69 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="~/css/register.css">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    تسجيل
+                </div>
+                <div class="card-body">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.FirstName" class="form-label">الاسم الأول</label>
+                            <input asp-for="Input.FirstName" class="form-control" placeholder="أدخل اسمك الأول" aria-required="true" />
+                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.LastName" class="form-label">الاسم الأخير</label>
+                            <input asp-for="Input.LastName" class="form-control" placeholder="أدخل اسمك الأخير" aria-required="true" />
+                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.PhoneNumber" class="form-label">رقم الهاتف</label>
+                            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="أدخل رقم هاتفك" aria-required="true" />
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Email" class="form-label">البريد الإلكتروني</label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="أدخل بريدك الإلكتروني" aria-required="true" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Password" class="form-label">كلمة المرور</label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" placeholder="أدخل كلمة مرورك" aria-required="true" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.ConfirmPassword" class="form-label">تأكيد كلمة المرور</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="أكد كلمة مرورك" aria-required="true" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <button id="registerSubmit" type="submit" class="btn btn-primary dashboard-btn">إنشاء حساب</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="./Login">تسجيل الدخول</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

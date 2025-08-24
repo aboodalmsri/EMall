@@ -1,0 +1,82 @@
+﻿@model IEnumerable<E_Mall.Models.CartItem>
+
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "عربة التسوق";
+}
+
+<link rel="stylesheet" href="~/css/cart.css">
+
+<div class="cart-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>المنتج</th>
+                <th>السعر</th>
+                <th>الكمية</th>
+                <th>الإجمالي</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="cart-item">
+                            <img src="@Url.Content($"/products/{item.Product.Image ?? "default-product.png"}")" class="card-img-top" alt="@item.Product.">
+                        </div>
+                    </td>
+                    <td>@item.Product.Price.ToString("0.00") ر.س</td>
+                    <td>
+                        <form asp-action="UpdateQuantity" asp-controller="Customer" method="post">
+                            <input type="hidden" name="cartItemId" value="@item.Id" />
+                            <div class="quantity-controls">
+                                <button type="button" class="quantity-button" onclick="decreaseQuantity('@item.Id')">-</button>
+                                <input type="number" class="quantity-input" name="quantity" value="@item.Quantity" data-item-id="@item.Id" min="1" onchange="updateQuantity('@item.Id', this.value)" />
+                                <button type="button" class="quantity-button" onclick="increaseQuantity('@item.Id')">+</button>
+                            </div>
+                        </form>
+                    </td>
+                    <td>@((item.Quantity * item.Product.Price).ToString("0.00")) ر.س</td>
+                    <td>
+                        <form asp-action="RemoveFromCart" asp-controller="Customer" method="post">
+                            <input type="hidden" name="cartItemId" value="@item.Id" />
+                            <button type="submit" class="remove-item">حذف</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="cart-summary">
+        <p>المبلغ الإجمالي: <span>@ViewBag.TotalAmount.ToString("0.00") ر.س</span></p>
+        <a asp-controller="Customer" asp-action="Checkout" class="btn btn-primary">إتمام الشراء</a>
+    </div>
+</div>
+
+<script>
+    function increaseQuantity(itemId) {
+        var input = document.querySelector('input[data-item-id="' + itemId + '"]');
+        var currentValue = parseInt(input.value);
+        input.value = currentValue + 1;
+        updateQuantity(itemId, input.value);
+    }
+
+    function decreaseQuantity(itemId) {
+        var input = document.querySelector('input[data-item-id="' + itemId + '"]');
+        var currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+            input.value = currentValue - 1;
+            updateQuantity(itemId, input.value);
+        }
+    }
+
+    function updateQuantity(itemId, quantity) {
+        var form = document.querySelector('input[data-item-id="' + itemId + '"]').closest('form');
+        form.submit();
+    }
+</script>

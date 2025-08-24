@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "_CustomerLayout";
+
+    ViewBag.Title = "shops";
+}
+
+<div class="container stores-page">
+    <h1 style="text-align:center;">قائمة المتاجر</h1>
+
+    <!-- شريط البحث -->
+    <div class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="ابحث عن متجر...">
+            <button class="btn btn-primary" type="button" style="margin-top:15px;">بحث</button>
+        </div>
+    </div>
+
+    <!-- شريط الفلترة -->
+    <div class="mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="categoryFilter" class="form-label">تصنيف المتجر:</label>
+                <select class="form-select" id="categoryFilter">
+                    <option value="">جميع التصنيفات</option>
+                    <option value="1">الملابس</option>
+                    <option value="2">الأجهزة الإلكترونية</option>
+                    <option value="3">الكتب</option>
+                    <!-- المزيد من التصنيفات -->
+                </select>
+            </div>
+            <!-- المزيد من خيارات الفلترة (نطاق جغرافي، تقييم، إلخ) -->
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var store in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="@Url.Content($"/logos/{store.Logo ?? "default-logo.png"}")" class="card-img-top" alt="@store.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@store.Name</h5>
+                        <p class="card-text">@store.Description</p>
+                        <p class="card-text">التصنيف: @store.Category?.Name</p>
+                        <p class="card-text">
+                            <span>التقييم: </span>
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= store.Rating)
+                                {
+                                    <i class="fas fa-star" style="color: #f8ce0b;"></i>
+                                }
+                                else if (i - 0.5 <= store.Rating && i > Math.Floor(store.Rating))
+                                {
+                                    <i class="fas fa-star-half-alt" style="color: #f8ce0b;"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star" style="color: #f8ce0b;"></i>
+                                }
+                            }
+                            <span>(@store.Rating.ToString("N1"))</span>
+                        </p>
+                        <a asp-controller="Customer" asp-action="StoreDetails" asp-route-id="@store.Id" class="btn btn-primary">عرض المتجر</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    <!-- ترقيم الصفحات -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item" aria-current="page">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">التالي</a>
+            </li>
+        </ul>
+    </nav>
+</div>

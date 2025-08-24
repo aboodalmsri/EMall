@@ -1,0 +1,63 @@
+﻿@model E_Mall.Models.Offer
+
+@{
+    Layout = "_MerchantLayout";
+    ViewData["Title"] = "تفاصيل العرض";
+}
+
+<div class="offer-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>@Model.Name</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">نوع العرض</dt>
+                <dd class="col-sm-9">@Model.Type</dd>
+
+                <dt class="col-sm-3">قيمة العرض</dt>
+                <dd class="col-sm-9">@Model.Value @(Model.Type == "خصم على المنتج" ? "%" : "ر.س")</dd>
+
+                <dt class="col-sm-3">تاريخ البداية</dt>
+                <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-3">تاريخ الانتهاء</dt>
+                <dd class="col-sm-9">@Model.EndDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-3">حالة العرض</dt>
+                <dd class="col-sm-9">
+                    @if (Model.IsActive)
+                    {
+                        <span class="badge badge-success">نشط</span>
+                    }
+                    else if (DateTime.Now < Model.StartDate)
+                    {
+                        <span class="badge badge-warning">لم يبدأ بعد</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">منتهي</span>
+                    }
+                </dd>
+
+                @if (Model.Type == "كوبون ترويجي")
+                {
+                    <dt class="col-sm-3">كود الكوبون</dt>
+                    <dd class="col-sm-9">@Model.CouponCode</dd>
+                }
+
+                <dt class="col-sm-3">عدد الاستخدامات</dt>
+                <dd class="col-sm-9">@Model.UsageCount</dd>
+
+                <dt class="col-sm-3">المبلغ الإجمالي للخصومات</dt>
+                <dd class="col-sm-9">@Model.TotalDiscountAmount ر.س</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-action="EditO" asp-route-id="@Model.Id" class="btn btn-primary">تعديل</a>
+            <a asp-action="offermanagement" class="btn btn-secondary">العودة للقائمة</a>
+        </div>
+    </div>
+</div>

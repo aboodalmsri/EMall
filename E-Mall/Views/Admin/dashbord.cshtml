@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "لوحة تحكم الأدمن";
+}
+
+<link rel="stylesheet" href="~/css/admindashboard.css">
+
+<div class="admin-dashboard-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h3>إجمالي المبيعات</h3>
+                <p>@ViewBag.TotalSales ر.س</p>
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h3>عدد الطلبات</h3>
+                <p>@ViewBag.OrderCount طلب</p>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h3>عدد المستخدمين</h3>
+                <p>@ViewBag.UserCount مستخدم</p>
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h3>عدد المتاجر</h3>
+                <p>@ViewBag.StoreCount متجر</p>
+                <i class="fas fa-store"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="dashboard-card">
+                <h3>أحدث المستخدمين المسجلين</h3>
+                <ul class="list-group">
+                    @foreach (var user in ViewBag.LatestUsers)
+                    {
+                        <li class="list-group-item">@user.FirstName @user.LastName</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="dashboard-card">
+                <h3>أحدث الطلبات</h3>
+                <ul class="list-group">
+                    @foreach (var order in ViewBag.LatestOrders)
+                    {
+                        <li class="list-group-item">#@order.Id - @order.User.FirstName @order.User.LastName (@order.TotalAmount ر.س)</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dashboard-card">
+                <h3>رسم بياني للمبيعات</h3>
+                <canvas id="salesChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const salesData = @Html.Raw(Json.Serialize(ViewBag.SalesData));
+            const monthLabels = @Html.Raw(Json.Serialize(ViewBag.MonthLabels));
+
+            const ctx = document.getElementById('salesChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line', // Or 'bar', 'pie', etc.
+                data: {
+                    labels: monthLabels,
+                    datasets: [{
+                        label: 'إجمالي المبيعات الشهرية',
+                        data: salesData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Blue
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}

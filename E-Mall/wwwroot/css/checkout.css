@@ -1,0 +1,79 @@
+﻿/* ==========================================================================
+   Checkout Styles
+   ========================================================================== */
+
+.checkout-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+    .checkout-section h2 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.order-summary {
+    list-style: none;
+    padding: 0;
+}
+
+    .order-summary li {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .order-summary li:last-child {
+            border-bottom: none;
+        }
+
+.order-total {
+    text-align: right;
+    margin-top: 15px;
+}
+
+    .order-total p {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+.btn-success {
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 15px;
+    }
+
+    .checkout-section {
+        padding: 15px;
+    }
+}

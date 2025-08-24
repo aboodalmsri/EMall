@@ -1,0 +1,62 @@
+﻿/* ==========================================================================
+   Favorite Styles
+   ========================================================================== */
+
+.favorite-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.favorite-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.favorite-item-image {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: fill; /* Ensure the image covers the area */
+    margin-bottom: 10px;
+}
+
+.favorite-item h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.favorite-item p {
+    color: #777;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: white;
+    border-color: black;
+    width: 100%;
+    color: #625a4e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .favorite-container {
+        padding: 15px;
+    }
+
+    .favorite-item {
+        padding: 15px;
+    }
+
+    .favorite-item-image {
+        max-width: 150px;
+    }
+}

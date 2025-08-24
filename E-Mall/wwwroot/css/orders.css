@@ -1,0 +1,126 @@
+﻿/* ==========================================================================
+   Orders Styles
+   ========================================================================== */
+
+.orders-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.order-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.order-header {
+    margin-bottom: 15px;
+}
+
+    .order-header h2 {
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .order-header p {
+        color: #777;
+    }
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .order-table th,
+    .order-table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle; /* Vertically align the content */
+    }
+
+    .order-table th {
+        background-color: #f2f2f2;
+    }
+
+.order-total {
+    text-align: right;
+    margin-top: 15px;
+}
+
+    .order-total p {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
+    .order-total span {
+        color: #28a745; /* Green color */
+    }
+
+.order-product {
+    display: flex;
+    align-items: center;
+}
+
+.order-product-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .orders-container {
+        padding: 15px;
+    }
+
+    .order-item {
+        font-size: 0.9rem;
+    }
+
+    .order-header {
+        text-align: center;
+    }
+    /* Adjust table width on small devices */
+    .order-table {
+        width: 100%;
+    }
+
+    .order-product {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* To vertically center content */
+        text-align: center;
+    }
+
+    .order-product-image {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+
+    .order-table th,
+    .order-table td {
+        padding: 0.4rem; /* Adjust padding */
+        font-size: 0.85rem; /* Adjust font */
+        text-align: center; /* Alingment*/
+    }
+
+    /* Small screens should adapt column widths */
+}
+
+/* Mid-sized screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .order-item {
+        font-size: 1rem;
+    }
+}

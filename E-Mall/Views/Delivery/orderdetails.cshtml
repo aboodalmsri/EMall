@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_DeliveryLayout";
+
+    ViewData["Title"] = "تفاصيل الطلب";
+}
+
+<link rel="stylesheet" href="~/css/orderdetails.css">
+
+<div class="order-details-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="order-summary">
+        <h2>ملخص الطلب</h2>
+        <p>رقم الطلب: #2024006</p>
+        <p>تاريخ الطلب: 2024/07/26</p>
+        <p>الزبون: Layla Ahmed</p>
+        <p>رقم هاتف الزبون: 0501234567</p>
+        <p>عنوان التسليم: الرياض، حي الصحافة</p>
+    </div>
+
+    <div class="order-products">
+        <h2>المنتجات</h2>
+        <ul class="product-list">
+            <li>تي شيرت قطني × 2 (100 ر.س)</li>
+            <li>بنطلون جينز × 1 (150 ر.س)</li>
+        </ul>
+        <p>المبلغ الإجمالي: 250 ر.س</p>
+    </div>
+
+    <div class="delivery-instructions">
+        <h2>تعليمات التسليم</h2>
+        <p>يرجى الاتصال بالزبون قبل الوصول.</p>
+    </div>
+
+    <div class="order-actions">
+        <h2>تحديث حالة الطلب</h2>
+        <select class="form-control">
+            <option>قيد التحضير</option>
+            <option>في الطريق</option>
+            <option selected>تم التوصيل</option>
+            <option>تم الإلغاء</option>
+        </select>
+        <button class="btn btn-success">تحديث الحالة</button>
+    </div>
+</div>

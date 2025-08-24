@@ -1,0 +1,86 @@
+﻿/* ==========================================================================
+   Order Management Styles
+   ========================================================================== */
+
+.order-management-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.order-filters {
+    margin-bottom: 20px;
+}
+
+    .order-filters .btn {
+        margin-right: 5px;
+    }
+
+.order-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.order-header {
+    margin-bottom: 15px;
+}
+
+    .order-header h2 {
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .order-header p {
+        color: #777;
+    }
+
+.order-details {
+    margin-bottom: 15px;
+}
+
+.order-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    width: auto;
+    box-sizing: border-box;
+}
+/*Responsivnes*/
+@media (max-width: 767px) {
+    .order-management-container {
+        padding: 15px;
+    }
+
+    .order-filters {
+        display: flex;
+        flex-direction: column; /* make element center*/
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+        .order-filters .btn {
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+        }
+
+    .order-item {
+        text-align: center;
+    }
+
+    .order-actions {
+        flex-direction: column;
+    }
+}

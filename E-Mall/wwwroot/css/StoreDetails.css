@@ -1,0 +1,280 @@
+﻿body {
+    font-family: 'Tajawal', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    display: flex;
+    background-color: #fff;
+    padding: 3%; /* تغيير إلى وحدة نسبية */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    align-items: center;
+    direction: rtl;
+    margin: 3%; /* تغيير إلى وحدة نسبية */
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-circle {
+    width: 15vw; /* تغيير إلى وحدة نسبية (viewport width) */
+    height: 15vw; /* تغيير إلى وحدة نسبية (viewport width) */
+    max-width: 180px; /* تحديد حد أقصى للعرض */
+    max-height: 180px; /* تحديد حد أقصى للارتفاع */
+    background-color: #f0f0f0;
+    border: 3px solid #d0d0d0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+    .logo-circle:hover {
+        transform: scale(1.05);
+    }
+
+.logo-image1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-content {
+    flex: 2;
+    padding: 0 3%; /* تغيير إلى وحدة نسبية */
+    text-align: center;
+}
+
+.store-name {
+    font-size: 2em; /* تغيير إلى وحدة نسبية */
+    color: #555;
+    letter-spacing: 1px;
+    margin-bottom: 1%; /* تغيير إلى وحدة نسبية */
+}
+
+.main-title {
+    font-size: 3em; /* تغيير إلى وحدة نسبية */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2%; /* تغيير إلى وحدة نسبية */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    font-size: 1.2em; /* تغيير إلى وحدة نسبية */
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 3%; /* تغيير إلى وحدة نسبية */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2%; /* تغيير إلى وحدة نسبية */
+}
+
+.social-icon {
+    width: 4vw; /* تغيير إلى وحدة نسبية (viewport width) */
+    height: 4vw; /* تغيير إلى وحدة نسبية (viewport width) */
+    max-width: 50px; /* تحديد حد أقصى للعرض */
+    max-height: 50px; /* تحديد حد أقصى للارتفاع */
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .social-icon:hover {
+        background-color: #d0d0d0;
+    }
+
+    .social-icon img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+    }
+
+/* الفلاتر */
+.filter-container {
+    background-color: #fff;
+    padding: 2%; /* تغيير إلى وحدة نسبية */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 3%; /* تغيير إلى وحدة نسبية */
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.search-box button {
+    background-color: white;
+    border-color: black;
+    color: #625a4e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .search-box button:hover {
+        background-color: #625a4e;
+        color: white;
+    }
+
+.filter-options {
+    display: flex;
+    gap: 2%; /* تغيير إلى وحدة نسبية */
+}
+
+.price-filter,
+.category-filter {
+    display: flex;
+    align-items: center;
+}
+
+    .price-filter label,
+    .category-filter label {
+        margin-left: 1%; /* تغيير إلى وحدة نسبية */
+        font-size: 0.9em; /* تغيير إلى وحدة نسبية */
+    }
+
+    .price-filter select,
+    .category-filter select {
+        padding: 0.8%; /* تغيير إلى وحدة نسبية */
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: 50%;
+        background-size: 1em;
+        text-align: center;
+        font-size: 0.9em; /* تغيير إلى وحدة نسبية */
+    }
+
+/* شرائح المنتجات */
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2%; /* تغيير إلى وحدة نسبية */
+    gap: 2%; /* تغيير إلى وحدة نسبية */
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 30%; /* تغيير إلى وحدة نسبية */
+    min-width: 250px; /* تحديد حد أدنى للعرض */
+    padding: 2%; /* تغيير إلى وحدة نسبية */
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.product-image {
+    width: 100%;
+    height: 20vw; /* تغيير إلى وحدة نسبية (viewport width) */
+    max-height: 200px; /* تحديد حد أقصى للارتفاع */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 2%; /* تغيير إلى وحدة نسبية */
+    height:80%;
+}
+
+.product-name {
+    font-size: 1.2em; /* تغيير إلى وحدة نسبية */
+    font-weight: bold;
+    margin-bottom: 1%; /* تغيير إلى وحدة نسبية */
+}
+
+.product-price {
+    font-size: 1em; /* تغيير إلى وحدة نسبية */
+    color: black;
+    margin-bottom: 2%; /* تغيير إلى وحدة نسبية */
+}
+
+.add-to-cart {
+    padding: 1% 2%; /* تغيير إلى وحدة نسبية */
+    background-color: white;
+    border-color: black;
+    color: #625a4e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .add-to-cart:hover {
+        background-color: #625a4e;
+        color: white;
+    }
+
+/* خط Tajawal */
+@@font-face {
+    font-family: 'Tajawal';
+    src: url('@Url.Content("~/Content/fonts/Tajawal-Regular.ttf")') format('truetype');
+    font-weight: normal;
+}
+
+@@font-face {
+    font-family: 'Tajawal';
+    src: url('@Url.Content("~/Content/fonts/Tajawal-Bold.ttf")') format('truetype');
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* تعديلات للشاشات الصغيرة (مثل الهواتف) */
+    .header-container {
+        flex-direction: column; /* ترتيب العناصر عموديًا */
+        text-align: center;
+    }
+
+    .logo-container {
+        margin-bottom: 2%; /* إضافة مساحة أسفل الشعار */
+    }
+
+    .header-content {
+        padding: 0; /* إزالة الحشو */
+    }
+
+    .filter-container {
+        flex-direction: column; /* ترتيب عناصر الفلترة عموديًا */
+        align-items: stretch; /* تمديد العناصر لتعبئة العرض */
+    }
+
+    .search-box {
+        margin-bottom: 2%; /* إضافة مساحة أسفل مربع البحث */
+    }
+
+    .filter-options {
+        flex-direction: column; /* ترتيب خيارات الفلترة عموديًا */
+    }
+
+    .product-card {
+        width: 45%; /* زيادة عرض شريحة المنتج */
+    }
+}
+
+@media (max-width: 480px) {
+    /* تعديلات إضافية للشاشات الأصغر */
+    .product-card {
+        width: 90%; /* جعل شريحة المنتج تشغل كامل العرض */
+    }
+}

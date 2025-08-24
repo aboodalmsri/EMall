@@ -1,0 +1,135 @@
+﻿/* ==========================================================================
+   Offer Management Styles
+   ========================================================================== */
+
+.offer-management-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 1.25rem auto; /* 20px = 1.25rem */
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #f9f9f9;
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.08); /* 10px = 0.625rem */
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.offer-creation-section {
+    margin-bottom: 1.875rem; /* 30px = 1.875rem */
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    box-sizing: border-box;
+}
+
+.offer-creation-section h2 {
+    margin-bottom: 0.9375rem; /* 15px = 0.9375rem */
+    color: #333;
+    font-size: 1.5rem; /* Scale title */
+}
+
+.form-group {
+    margin-bottom: 0.9375rem; /* 15px = 0.9375rem */
+    box-sizing: border-box;
+}
+
+.form-control {
+    border-radius: 0.25rem; /* 4px = 0.25rem */
+    border: 1px solid #ced4da;
+    padding: 0.5rem 0.75rem; /* 8px 12px = 0.5rem 0.75rem */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.offer-reports-section {
+    padding: 1.25rem; /* 20px = 1.25rem */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    box-sizing: border-box;
+}
+
+.offer-reports-section h2 {
+    margin-bottom: 0.9375rem; /* 15px = 0.9375rem */
+    color: #333;
+    font-size: 1.5rem; /* Scale title */
+}
+
+.offer-reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+.offer-reports-table th,
+.offer-reports-table td {
+    padding: 0.5rem; /* 8px = 0.5rem */
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    vertical-align: middle; /* Align vertically */
+}
+
+/* Make sure headers always on a single line */
+.offer-reports-table th {
+    white-space: nowrap; /* Prevent line breaks */
+    font-weight: bold;
+}
+
+/*Smaller font and the design of the border*/
+.offer-reports-table tr{
+       border-bottom: 2px solid #ddd;   
+}
+
+.offer-reports-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row colors */
+}
+
+/* Smaller devices */
+@media (max-width: 576px) {
+    .offer-management-container {
+        padding: 0.75rem; /* Reduced padding */
+    }
+
+    .offer-creation-section,
+    .offer-reports-section {
+        padding: 0.75rem; /* Adjust padding */
+    }
+
+    .offer-creation-section h2,
+    .offer-reports-section h2 {
+        font-size: 1.2rem; /* Scale titles */
+    }
+
+    .form-group {
+        margin-bottom: 0.75rem; /* Reduce spacing */
+    }
+
+.offer-reports-table th,
+.offer-reports-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    text-align: left;
+    border: none;    /*Remove the border*/
+}
+  .offer-reports-table thead {
+         display: none;/*remove labels*/
+    }
+    }
+/* Large screens adjustments */
+@media (min-width: 992px) {
+    .offer-management-container {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.2em;
+    }
+
+    .offer-creation-section h2,
+    .offer-reports-section h2 {
+        font-size: 1.7rem; /* Scale titles */
+    }
+}

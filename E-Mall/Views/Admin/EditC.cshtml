@@ -1,0 +1,51 @@
+﻿@model E_Mall.Models.AddCategoryModel
+
+@{
+    ViewData["Title"] = "تعديل التصنيف";
+    Layout = "_AdminLayout";
+}
+<link rel="stylesheet" href="~/css/storemanagement.css" />
+<div class="store-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <h4>Category</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditC">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">صورة الصنف</label>
+                    <div class="col-sm-8">
+                        <img src="/category/@(ViewData["image"] ?? "default-category.png")" width="150" />
+
+                        <!-- ✅ استخدام `name="Image"` بدلاً من `asp-for="Image"` -->
+                        <input type="file" class="form-control" name="Image" />
+
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="حفظ" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Categories">العودة إلى القائمة</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

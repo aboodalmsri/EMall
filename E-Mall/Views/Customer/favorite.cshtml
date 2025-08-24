@@ -1,0 +1,34 @@
+﻿@model IEnumerable<E_Mall.Models.WishlistItem>
+
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "المفضلة";
+}
+
+<link rel="stylesheet" href="~/css/favorite.css">
+<link rel="stylesheet" href="~/css/dashboard.css">
+
+<div class="favorite-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <section class="favorite-section">
+        <h2>المنتجات المفضلة</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="favorite-item">
+                        <img src="@Url.Content($"/products/{item.Product.Image ?? "default-product.png"}")" alt="@item.Product.Name" class="favorite-item-image">
+                        <h3>@item.Product.Name</h3>
+                        <p>@item.Product.Description</p>
+                        <a asp-controller="Customer" asp-action="ProductDetails" asp-route-id="@item.Product.Id" class="btn btn-primary dashboard-btn">عرض المنتج</a>
+                        <form asp-action="RemoveFromWishlist" asp-controller="Customer" method="post">
+                            <input type="hidden" name="wishlistItemId" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger dashboard-btn">حذف من المفضلة</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</div>

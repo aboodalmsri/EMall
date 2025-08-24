@@ -1,0 +1,85 @@
+﻿@model IEnumerable<E_Mall.Models.CartItem>
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "إتمام الشراء";
+}
+
+<link rel="stylesheet" href="~/css/checkout.css">
+
+<div class="checkout-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="checkout-section">
+                <h2>معلومات الشحن</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="firstName">الاسم الأول</label>
+                        <input type="text" class="form-control" id="firstName" value="فاطمة">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">اسم العائلة</label>
+                        <input type="text" class="form-control" id="lastName" value="علي">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" class="form-control" id="email" value="fatima.ali@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">العنوان</label>
+                        <input type="text" class="form-control" id="address" value="شارع الرياض، حي النزهة">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">المدينة</label>
+                        <input type="text" class="form-control" id="city" value="الرياض">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">رقم الهاتف</label>
+                        <input type="tel" class="form-control" id="phoneNumber" value="0501234567">
+                    </div>
+                </form>
+            </div>
+
+            <div class="checkout-section">
+                <h2>طريقة الدفع</h2>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                    <label class="form-check-label" for="creditCard">
+                        بطاقة ائتمانية
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                    <label class="form-check-label" for="paypal">
+                        PayPal
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery">
+                    <label class="form-check-label" for="cashOnDelivery">
+                        الدفع عند الاستلام
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="checkout-section">
+                <h2>ملخص الطلب</h2>
+                <ul class="order-summary">
+                    @foreach (var item in Model)
+                    {
+                        <li>@item.Product.Name × @item.Quantity <span>@((item.Product.Price * item.Quantity).ToString("0.00")) ر.س</span></li>
+                    }
+                </ul>
+                <div class="order-total">
+                    <p>المبلغ الإجمالي: <span>@ViewBag.TotalAmount.ToString("0.00") ر.س</span></p>
+                </div>
+                <form asp-action="CreateOrder" asp-controller="Customer" method="post">
+                    <button type="submit" class="btn btn-success btn-block">تأكيد الطلب</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

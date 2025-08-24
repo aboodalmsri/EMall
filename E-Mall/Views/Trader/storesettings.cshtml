@@ -1,0 +1,78 @@
+﻿@model E_Mall.Models.EditStoreModel
+
+@{
+    Layout = "_MerchantLayout";
+    ViewData["Title"] = "إعدادات المتجر";
+}
+
+<link rel="stylesheet" href="~/css/storesettings.css" />
+
+<div class="row">
+    <div class="store-settings-container">
+        <h2 class="text-center mb-5">@ViewData["Title"]</h2>
+
+        <form method="post" asp-action="storesettings" asp-controller="Trader" asp-route-id="@Model.Id" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">اسم المتجر</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">الوصف</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Description" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">مكان التواجد</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Location" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">شعار المتجر</label>
+                <div class="col-sm-8">
+                    <img src="/logos/@(ViewData["Logo"] ?? "default-logo.png")" width="150" />
+                    <input type="file" class="form-control" asp-for="Logo" />
+                    <span asp-validation-for="Logo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">غلاف المتجر</label>
+                <div class="col-sm-8">
+                    <img src="/covers/@(ViewData["Cover"] ?? "default-cover.png")" width="150" />
+                    <input type="file" class="form-control" asp-for="CoverImage" />
+                    <span asp-validation-for="CoverImage" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">الصنف</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="CategoryId" asp-items="ViewBag.CategoryId">
+                        <option value="">اختر الصنف</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-8 d-grid">
+                    <button type="submit" class="btn btn-primary">تحديث</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

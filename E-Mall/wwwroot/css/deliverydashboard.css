@@ -1,0 +1,92 @@
+﻿/* ==========================================================================
+   Delivery Dashboard Styles
+   ========================================================================== */
+
+.delivery-dashboard-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.dashboard-card-header {
+    padding: 10px 15px;
+    background-color: #a49784;
+    color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-card-body {
+    padding: 20px;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+    .stat-box i {
+        font-size: 40px;
+        color: #807262; /* Change #007bff */
+        margin-bottom: 10px;
+    }
+
+    .stat-box h3 {
+        margin-bottom: 5px;
+    }
+
+    .stat-box p {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+.notifications {
+    list-style: none;
+    padding: 0;
+}
+
+    .notifications li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .notifications li:last-child {
+            border-bottom: none;
+        }
+
+    .notifications i {
+        color: #dc3545; /* Red color for alerts */
+        margin-right: 5px;
+    }
+/*Add Style for the  Extra data */
+.data-list {
+    color: #007bff; /* set blue color*/
+}
+
+/*Style Responsivnes small screen device*/
+@media (max-width: 767px) {
+    .delivery-dashboard-container {
+        padding: 15px;
+    }
+
+    .dashboard-card-body {
+        text-align: center; /* Align all child elements*/
+    }
+
+    .stat-box p {
+        font-size: 0.8rem; /*Scale Text*/
+    }
+
+    .stat-box h3 {
+        font-size: 1rem; /*Scale Title*/
+    }
+}

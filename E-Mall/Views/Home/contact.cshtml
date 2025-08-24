@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "تواصل معنا";
+}
+
+<div class="container contact-us-page">
+    <!-- العنوان الرئيسي -->
+    <h1 class="text-center mb-5">تواصل معنا</h1>
+
+    <!-- معلومات الاتصال -->
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <div class="stat-box">
+                <i class="fas fa-envelope"></i>
+                <h3>البريد الإلكتروني</h3>
+                <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-box">
+                <i class="fas fa-phone"></i>
+                <h3>رقم الهاتف</h3>
+                <p><a href="tel:+1234567890">+1234567890</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>العنوان</h3>
+                <p>123 Main Street, City, Country</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- نموذج الاتصال -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <div class="card contact-form">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">الاسم</label>
+                            <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">الموضوع</label>
+                            <input type="text" class="form-control" id="subject" placeholder="أدخل موضوع الرسالة">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">الرسالة</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="أدخل رسالتك"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary dashboard-btn">إرسال</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

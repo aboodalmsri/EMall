@@ -1,0 +1,292 @@
+﻿@model E_Mall.Models.Product
+
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "تفاصيل المنتج";
+    List<E_Mall.Models.ProductReview> productReviews = Model.ProductReviews.ToList();
+
+}
+
+<link rel="stylesheet" href="~/css/productdetails.css">
+
+<div class="product-details-container">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Url.Content($"/products/{Model.Image ?? "default-product.png"}")" alt="صورة المنتج" class="product-image">
+        </div>
+        <div class="col-md-6">
+            <h1 class="product-title">@Model.Name</h1>
+            <p class="product-price">السعر: @Model.Price ر.س</p>
+            @if (Model.Discount.HasValue)
+            {
+                <p class="product-discount">الخصم: @Model.Discount%</p>
+                <p class="product-discounted-price">السعر بعد الخصم: @Model.DiscountedPrice ر.س</p>
+            }
+            <p class="product-store">
+                المتجر:
+                @if (Model.Store != null)
+                {
+                    <a asp-controller="Customer" asp-action="StoreDetails" asp-route-id="@Model.StoreId">@Model.Store.Name</a>
+                }
+                else
+                {
+                    <span>غير محدد</span>
+                }
+            </p>
+            <p class="product-description">
+                @Model.Description
+            </p>
+
+            <!-- Add quantity selection -->
+            <div class="product-quantity">
+                <label for="quantity">الكمية:</label>
+                <div class="quantity-controls">
+                    <button type="button" class="quantity-button" data-action="decrease" onclick="decreaseQuantity()">-</button>
+                    <input type="number" id="quantity" class="quantity-input" value="1" min="1">
+                    <button type="button" class="quantity-button" data-action="increase" onclick="increaseQuantity()">+</button>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <form asp-action="AddToCart" asp-controller="Customer" method="post">
+                    <!-- Correct controller -->
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <input type="hidden" name="quantity" id="hiddenQuantity" value="1" /> <!-- Hidden field for quantity -->
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary dashboard-btn" onclick="updateHiddenQuantity()">إضافة إلى السلة</button>
+                </form>
+                <form asp-action="AddToWishlist" asp-controller="Customer" method="post">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-outline-secondary dashboard-btn">إضافة إلى المفضلة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Details Section -->
+    <div class="row">
+        <div class="col-md-12">
+            <section class="product-details">
+                <h3>تفاصيل المنتج</h3>
+                <ul>
+                    <li>التقييم: @(Model.Rating.ToString("N1")) ★</li>
+                    <li>الفئة: @Model.Category</li>
+                    <li>الكمية في المخزون: @Model.QuantityInStock</li>
+                    <li>جديد: @(Model.IsNew ? "نعم" : "لا")</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- product desc section -->
+    <div class="row">
+        <div class="col-md-12">
+            <section class="product-description">
+                <h3>وصف المنتج</h3>
+                <p>@Model.Description</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="rating-container">
+    <div class="store-rating">
+        <div class="rating-summary">
+            <div class="rating-average">@ViewBag.AverageRating</div>
+            <div class="rating-stars rating-display">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Convert.ToDouble(ViewBag.AverageRating ?? 0))
+                    {
+                        <span class="fa fa-star" style="color: #f8ce0b;"></span>
+                    }
+                    else
+                    {
+                        <span class="fa fa-star" style="color: #ccc;"></span>
+                    }
+                }
+            </div>
+            <div class="rating-count">(@ViewBag.ReviewCount تقييم)</div>
+        </div>
+
+        <form asp-controller="Customer" asp-action="AddReviewP" method="post" class="rating-form">
+            <input type="hidden" name="ProductId" value="@Model.Id" />
+
+            <div class="rating-stars">
+                <input type="radio" id="star5" name="Rating" value="5" /><label for="star5" class="fa fa-star"></label>
+                <input type="radio" id="star4" name="Rating" value="4" /><label for="star4" class="fa fa-star"></label>
+                <input type="radio" id="star3" name="Rating" value="3" /><label for="star3" class="fa fa-star"></label>
+                <input type="radio" id="star2" name="Rating" value="2" /><label for="star2" class="fa fa-star"></label>
+                <input type="radio" id="star1" name="Rating" value="1" /><label for="star1" class="fa fa-star"></label>
+            </div>
+
+            <textarea name="Comment" placeholder="أضف تعليقك حول المتجر (اختياري)"></textarea>
+
+            <button type="submit" class="btn btn-primary">إرسال التقييم</button>
+        </form>
+
+        @if (ViewBag.Reviews != null && ViewBag.Reviews.Count > 0)
+        {
+            <div class="existing-reviews">
+                <h4>التقييمات السابقة</h4>
+                @foreach (var review in ViewBag.Reviews)
+                {
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= review.Rating)
+                                    {
+                                        <span class="fa fa-star"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fa fa-star" style="color: #ccc;"></span>
+                                    }
+                                }
+                            </div>
+                            <div class="review-date">@review.CreatedAt.ToString("dd/MM/yyyy")</div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(review.Comment))
+                        {
+                            <p class="review-comment">@review.Comment</p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+<style>
+    .rating-container {
+        margin: 20px 0;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .store-rating {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .rating-stars {
+        direction: ltr;
+        display: inline-block;
+    }
+
+        .rating-stars input {
+            display: none;
+        }
+
+        .rating-stars label {
+            float: right;
+            color: #ccc;
+            font-size: 30px;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+
+            .rating-stars input:checked ~ label,
+            .rating-stars label:hover,
+            .rating-stars label:hover ~ label {
+                color: #f8ce0b;
+            }
+
+                .rating-stars input:checked + label:hover,
+                .rating-stars input:checked ~ label:hover,
+                .rating-stars label:hover ~ input:checked ~ label,
+                .rating-stars input:checked ~ label:hover ~ label {
+                    color: #f8ce0b;
+                }
+
+    .rating-summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .rating-average {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .rating-count {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .rating-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: vertical;
+        min-height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .existing-reviews {
+        margin-top: 30px;
+        text-align: right;
+    }
+
+    .review-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    .review-stars {
+        color: #f8ce0b;
+    }
+
+    .review-date {
+        color: #666;
+        font-size: 12px;
+    }
+</style>
+
+<script>
+    function increaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    }
+
+    function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+
+    function updateHiddenQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var hiddenQuantity = document.getElementById('hiddenQuantity');
+        hiddenQuantity.value = quantityInput.value;
+    }
+</script>

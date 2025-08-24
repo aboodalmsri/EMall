@@ -1,0 +1,60 @@
+﻿/* ==========================================================================
+   Store Settings Styles
+   ========================================================================== */
+
+.store-settings-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.store-info-section,
+.payment-methods-section,
+.shipping-methods-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+    .store-info-section h2,
+    .payment-methods-section h2,
+    .shipping-methods-section h2 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control-file {
+    padding-top: 8px;
+}
+
+/*Responsivnes*/
+/*Style on small device*/
+@media (max-width: 768px) {
+    .store-settings-container {
+        padding: 15px; /* Reduce padding */
+    }
+    /*Style for info payment and Shapping*/
+    .store-info-section,
+    .payment-methods-section,
+    .shipping-methods-section {
+        padding: 15px; /* Reduce padding inside sections */
+    }
+}

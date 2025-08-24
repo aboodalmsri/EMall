@@ -1,0 +1,47 @@
+﻿@model IEnumerable<E_Mall.Models.Order>
+@{
+    Layout = "_AdminLayout";
+
+    ViewData["Title"] = "إدارة الطلبات";
+}
+
+<link rel="stylesheet" href="~/css/ordermanagement.css">
+
+<div class="order-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="order-filters">
+        <button class="btn btn-outline-primary" data-status="new">الطلبات الجديدة</button>
+        <button class="btn btn-outline-primary" data-status="processing">قيد المعالجة</button>
+        <button class="btn btn-outline-primary" data-status="completed">المكتملة</button>
+        <button class="btn btn-outline-primary" data-status="cancelled">الملغاة</button>
+    </div>
+
+    <div class="order-list">
+        @foreach(var order in Model)
+        {
+            <div class="order-item" data-status="new">
+                <div class="order-header">
+                    <h2>رقم الطلب:@order.Id</h2>
+                    <p>تاريخ الطلب:@order.OrderDate</p>
+                    <p>الزبون:@order.User.FirstName @order.User.LastName </p>
+                    <p>إيميل الزبون:@order.User.Email</p>
+                    <p>رقم الزبون:@order.User.PhoneNumber</p>
+                </div>
+                @foreach (var item in order.OrderItems)
+                {
+                    <div class="order-details">
+                        <p>المنتج:@item.Product.Id</p>
+                        <p>المبلغ الإجمالي:@order.TotalAmount</p>
+                        @* <p>عنوان الشحن:@item.Product</p> *@
+                    </div>
+                    <div class="order-actions">
+                        <p>حالة الطلب:@order.Status</p>
+                    </div>
+                }
+            </div>
+        }
+
+       
+    </div>
+</div>

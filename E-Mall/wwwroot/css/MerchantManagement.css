@@ -1,0 +1,125 @@
+﻿/* ==========================================================================
+   Delivery Driver Management Styles
+   ========================================================================== */
+
+.delivery-driver-management-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 1.25rem auto;
+    padding: 1.25rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.08);
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.delivery-driver-list-section,
+.delivery-driver-creation-section {
+    margin-bottom: 1.875rem;
+    padding: 1.25rem;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+}
+
+    .delivery-driver-list-section h2,
+    .delivery-driver-creation-section h2 {
+        margin-bottom: 0.9375rem;
+        color: #333;
+        font-size: 1.5rem;
+    }
+
+.form-group {
+    margin-bottom: 0.9375rem;
+    box-sizing: border-box;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Styling of the Card*/
+.driver-card {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #e1dbd4; /*Match Design color*/
+    color: #625a4e; /*Match Design color*/
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+/*Remove the underlining styles for mobile, tablet, and larger screeds*/
+.actions a {
+    margin-right: 0.5em;
+    text-decoration: none; /*Remove text Style*/
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+    .actions a:hover {
+        text-decoration: underline; /*Showunderline*/
+    }
+/*Responsivnes style on small devices and adjust elements size and padding*/
+@media (max-width: 767px) {
+    .delivery-driver-management-container {
+        padding: 1rem;
+    }
+
+    .delivery-driver-list-section,
+    .delivery-driver-creation-section {
+        padding: 0.75rem;
+        /*Scale element size smaller phone*/
+        font-size: 0.7rem;
+    }
+    /*Make elements scale with phones devices*/
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+}
+/* Adjustments for responsiveness - Added/Improved */
+@media (max-width: 768px) {
+    .form-inline {
+        flex-direction: column; /* Stack form elements */
+        align-items: stretch; /* Make elements full width */
+    }
+
+    .input-group {
+        width: 100%; /* Make input group full width */
+        margin-bottom: 0.5rem; /* Add some spacing */
+    }
+
+    .delivery-driver-management-container {
+        padding: 0.75rem; /* Reduce padding */
+    }
+
+    .delivery-driver-list-section,
+    .delivery-driver-creation-section {
+        padding: 0.5rem; /* Reduce padding */
+        font-size: 0.8rem; /* Adjust font size */
+    }
+}
+
+/* Default styles for col-md-6 and col-lg-4, ensuring they take up appropriate space on different screen sizes */
+.col-md-6 {
+    width: 50%; /* Take up half the container width on medium screens */
+}
+
+.col-lg-4 {
+    width: 33.33333%; /* Take up one third of the container width on large screens */
+}
+
+/* Media query to adjust layout for smaller screens */
+@media (max-width: 768px) {
+    /* On small screens, make the columns take up the full width */
+    .col-md-6,
+    .col-lg-4 {
+        width: 100%;
+    }
+}

@@ -1,0 +1,47 @@
+﻿@model E_Mall.Models.Product
+
+@{
+    Layout = "_MerchantLayout";
+
+    ViewData["Title"] = "حذف المنتج";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>هل أنت متأكد أنك تريد حذف هذا؟</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuantityInStock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuantityInStock)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteP">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="حذف" class="btn btn-danger" /> |
+        <a asp-action="ProductManagement">العودة إلى القائمة</a>
+    </form>
+</div>

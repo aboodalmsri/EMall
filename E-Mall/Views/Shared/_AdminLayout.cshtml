@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Admin" asp-action="dashbord">
+                    <img src="~/img/e_mall_logo.png" alt="E-MALL" class="logo-image" />
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Profile" title="الملف الشخصي"><i class="fas fa-user"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="DeliveryDriverManagement" title="إدارة سائقي التوصيل"><i class="fas fa-truck"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="MerchantManagement" title="إدارة التجار"><i class="fas fa-user-tie"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="StoreManagement" title="إدارة المتاجر"><i class="fas fa-store"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="ProductManagement" title="إدارة المنتجات"><i class="fas fa-box"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Categories" title="إدارة الاصناف"><i class="fas fa-tags"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="OrderManagement" title="إدارة الطلبات"><i class="fas fa-clipboard-list"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="UserReviewsManagement" title="إدارة التقييمات"><i class="fas fa-comments"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Reports" title="التقارير"><i class="fas fa-chart-bar"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="contact" title="البلاغات"><i class="fas fa-exclamation-circle"></i></a>
+                        </li>
+                    </ul>
+
+                    <!-- Authentication Links (Example - Adjust as needed) -->
+                    <partial name="_LoginPartial" />
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a asp-controller="Admin" asp-action="Contact" class="nav-link px-2 text-body-secondary">تواصل معنا</a></li>
+            <li class="nav-item"><a asp-controller="Admin" asp-action="About" class="nav-link px-2 text-body-secondary">من نحن</a></li>
+            <li class="nav-item"><a asp-controller="Admin" asp-action="Privacy" class="nav-link px-2 text-body-secondary">سياسة الخصوصية</a></li>
+        </ul>
+        <p style="color:#462605; text-align:center;">© 2024 Company, E-MALL | Powerd By : Abdalrhman Almasri</p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

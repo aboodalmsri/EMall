@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "سائقي التوصيل";
+}
+
+<link rel="stylesheet" href="~/css/deliverydrivers.css">
+
+<div class="delivery-drivers-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Delivery Driver List Section -->
+    <div class="delivery-driver-list-section">
+        <div class="row">
+            <!-- Example Driver Card 1 (Repeat for each driver) -->
+            <div class="col-md-4">
+                <div class="driver-card">
+                    <img src="~/img/nopp.jpg" alt="صورة السائق" class="driver-image">
+                    <h3>Mohammed AlSalem</h3>
+                    <p>معلومات السيارة: تويوتا، كامري 2020</p>
+                    <p>منطقة التغطية: الرياض</p>
+                    <div class="driver-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                    </div>
+                    <button class="btn btn-primary dashboard-btn">اختر هذا السائق</button>
+                </div>
+            </div>
+            <!-- Example Driver Card 2 (Repeat for each driver) -->
+            <div class="col-md-4">
+                <div class="driver-card">
+                    <img src="~/img/nopp.jpg" alt="صورة السائق" class="driver-image">
+                    <h3>Ahmed Khaled</h3>
+                    <p>معلومات السيارة: هيونداي، سوناتا 2018</p>
+                    <p>منطقة التغطية: جدة</p>
+                    <div class="driver-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <button class="btn btn-primary dashboard-btn">اختر هذا السائق</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="driver-card">
+                    <img src="~/img/nopp.jpg" alt="صورة السائق" class="driver-image">
+                    <h3>Abdullah Mohammed</h3>
+                    <p>معلومات السيارة: كيا، سيراتو 2021</p>
+                    <p>منطقة التغطية: مكة</p>
+                    <div class="driver-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                    </div>
+                    <button class="btn btn-primary dashboard-btn">اختر هذا السائق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

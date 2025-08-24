@@ -1,0 +1,105 @@
+﻿/* ==========================================================================
+   Available Orders Styles
+   ========================================================================== */
+
+.available-orders-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.order-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Or space-around */
+}
+
+.order-item {
+    margin: 1rem;
+    padding: 1.25rem; /* 20px */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem; /* 8px */
+    width: calc(50% - 2rem); /* Two items per row - consider the margins*/
+    box-sizing: border-box; /* Ensure padding and borders are within the set width */
+}
+
+.order-header {
+    margin-bottom: 1rem; /* 16px */
+}
+
+    .order-header h2 {
+        margin-bottom: 0.5rem; /* 8px */
+        color: #333;
+        font-size: 1.3rem;
+    }
+
+    .order-header p {
+        color: #777;
+    }
+
+.order-details {
+    margin-bottom: 1rem; /* 16px */
+
+}
+
+.order-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .order-actions .btn {
+        padding: 0.5rem 0.75rem; /* 8px 12px */
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+/*Override Bootstarp style for  secondary and make it like the main style*/
+.btn-outline-secondary {
+    color: #625a4e; /* text color, from you color used*/
+    border-color: black; /* Border Color*/
+}
+    /*Modify On hover*/
+    .btn-outline-secondary:hover {
+        color: #fff; /* Inverted text when touched*/
+        background-color: #625a4e; /* Inverted border*/
+    }
+/* Responsiveness */
+@media (max-width: 768px) {
+    .available-orders-container {
+        padding: 1rem;
+    }
+
+    .order-list {
+        display: flex;
+        flex-direction: column; /* Make the order in vertical form*/
+    }
+
+    .order-item {
+        /*Make a small amount of space between the order to get style*/
+        width: 100%;
+        margin: 0.5rem 0px;
+    }
+
+    .order-actions {
+        flex-direction: column; /* Make the order in vertical form*/
+        align-items: stretch; /*Force all items to fil the screens*/
+        gap: 0.5rem; /* Space between in each button*/
+    }
+
+        .order-actions .btn {
+            width: 100%; /* To take the element of the row*/
+            font-size: 0.9rem;
+
+        }
+    /*Adjust size for hover with mobile */
+    .btn-outline-secondary:active {
+        color: #fff !important; /* Inverted text when touched*/
+        background-color: #625a4e !important; /* Inverted border*/
+    }
+}

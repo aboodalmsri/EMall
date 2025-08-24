@@ -1,0 +1,99 @@
+﻿@model List<E_Mall.Models.Review>
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "إدارة تقييمات المستخدمين";
+}
+
+<link rel="stylesheet" href="~/css/userreviewsmanagement.css">
+
+<div class="user-reviews-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Filter and Search Section -->
+    <div class="filter-search-section">
+        <form method="get" asp-action="UserReviewsManagement" asp-controller="Admin">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="userTypeFilter">فلترة حسب النوع</label>
+                        <select class="form-control" id="userTypeFilter" name="userTypeFilter">
+                            <option value="">الكل</option>
+                            <option value="customer">زبون</option>
+                            <option value="store">متجر</option>
+                            <option value="delivery">سائق توصيل</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="ratingFilter">فلترة حسب التقييم</label>
+                        <select class="form-control" id="ratingFilter" name="ratingFilter">
+                            <option value="">الكل</option>
+                            <option value="5">5 نجوم</option>
+                            <option value="4">4 نجوم</option>
+                            <option value="3">3 نجوم</option>
+                            <option value="2">2 نجوم</option>
+                            <option value="1">نجمة واحدة</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="searchName">بحث بالاسم</label>
+                        <input type="text" class="form-control" id="searchName" name="searchName" placeholder="ادخل اسم المستخدم">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary dashboard-btn">تطبيق الفلاتر</button>
+        </form>
+    </div>
+
+    <!-- User Reviews List Section -->
+    <div class="user-reviews-list-section">
+        <h2>قائمة التقييمات</h2>
+        @foreach (var review in Model)
+        {
+            <div class="review-card" data-user-type="customer" data-rating="@review.Rating">
+                <h3>
+                    @if (review.Customer != null)
+                    {
+                        <span>الزبون: @review.Customer.FirstName @review.Customer.LastName</span>
+                    }
+                    else if (review.Store != null)
+                    {
+                        <span>المتجر: @review.Store.Name</span>
+                    }
+                    else
+                    {
+                        <span>مجهول</span>
+                    }
+                </h3>
+                @if (review.Store != null)
+                {
+                    <p class="product-store">
+                        المتجر:
+                        @if (review.Store != null)
+                        {
+                            <a asp-controller="Customer" asp-action="StoreDetails" asp-route-id="@review.StoreId">@review.Store.Name</a>
+                        }
+                        else
+                        {
+                            <span>غير محدد</span>
+                        }
+                    </p>
+                }
+                <div class="rating">
+                    @for (int i = 0; i < review.Rating; i++)
+                    {
+                        <span class="star">★</span>
+                    }
+                    @for (int i = review.Rating; i < 5; i++)
+                    {
+                        <span class="star">☆</span>
+                    }
+                </div>
+                <p>التعليق: @review.Comment</p>
+            </div>
+        }
+    </div>
+</div>

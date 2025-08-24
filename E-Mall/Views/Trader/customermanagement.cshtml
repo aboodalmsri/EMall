@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "_MerchantLayout";
+
+    ViewData["Title"] = "إدارة العملاء";
+}
+
+<link rel="stylesheet" href="~/css/customermanagement.css">
+
+<div class="customer-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Search Form -->
+    <div class="search-form">
+        <form method="get">
+            <!-- Change the method to GET -->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="ابحث بالاسم، البريد الإلكتروني، أو رقم الهاتف" name="searchTerm">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">بحث</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="customer-card">
+                <h3>Fatima AlAli</h3>
+                <p>البريد الإلكتروني: fatima.alali@example.com</p>
+                <p>رقم الهاتف: 0501234567</p>
+                <p>عدد الطلبات: 5</p>
+                <p>المبلغ الإجمالي للمشتريات: 750 ر.س</p>
+                <div class="customer-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                </div>
+                <a href="#" class="btn btn-primary">عرض التفاصيل</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="customer-card">
+                <h3>Ahmed Salem</h3>
+                <p>البريد الإلكتروني: ahmed.salem@example.com</p>
+                <p>رقم الهاتف: 0558765432</p>
+                <p>عدد الطلبات: 10</p>
+                <p>المبلغ الإجمالي للمشتريات: 1500 ر.س</p>
+                <div class="customer-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <a href="#" class="btn btn-primary">عرض التفاصيل</a>
+            </div>
+        </div>
+    </div>
+</div>

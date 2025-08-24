@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "_DeliveryLayout";
+
+    ViewData["Title"] = "لوحة تحكم سائق التوصيل";
+}
+
+<link rel="stylesheet" href="~/css/deliverydashboard.css">
+
+<div class="delivery-dashboard-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    نظرة عامة على الطلبات
+                </div>
+                <div class="dashboard-card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stat-box">
+                                <i class="fas fa-truck-loading"></i>
+                                <h3>الطلبات النشطة</h3>
+                                <p>5 طلبات</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-box">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>الطلبات المكتملة</h3>
+                                <p>120 طلب</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-box">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h3>الطلبات المعلقة</h3>
+                                <p>2 طلب</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card dashboard-mt-3">
+                <div class="dashboard-card-header">
+                    إحصائيات الأرباح
+                </div>
+                <div class="dashboard-card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="stat-box">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h3>إجمالي الأرباح</h3>
+                                <p>3,500 ر.س</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-box">
+                                <i class="fas fa-tasks"></i>
+                                <h3>عدد الطلبات المنجزة</h3>
+                                <p>120 طلب</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    الإشعارات والتنبيهات
+                </div>
+                <div class="dashboard-card-body">
+                    <ul class="notifications">
+                        <li><i class="fas fa-exclamation-triangle"></i> طلب جديد بالقرب منك: #2024006</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> تم إلغاء الطلب: #2024003</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dashboard-card dashboard-mt-3">
+                <div class="dashboard-card-header">
+                    بيانات إضافية
+                </div>
+                <div class="dashboard-card-body">
+                    <ul class="notifications">
+                        <li class="data-list"> <i class="fas fa-location-dot"></i> عدد الكيلومترات المقطوعة 1400Km</li>
+                        <li class="data-list"><i class="fas fa-comment"></i> متوسط مدة التوصيل 15 دقيقة </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    /*
+        * تسجيل سائق التوصيل (DeliveryDriver/Register): نموذج لتسجيل سائق توصيل جديد (الاسم، البريد الإلكتروني، رقم الهاتف، معلومات السيارة، منطقة التغطية، إلخ).
+
+        لوحة تحكم سائق التوصيل (DeliveryDriver/Dashboard): تعرض معلومات حول الطلبات المتاحة، الطلبات الحالية، الأرباح، إلخ.
+
+        قائمة الطلبات المتاحة (DeliveryDriver/AvailableOrders): تعرض قائمة بالطلبات التي يمكن لسائق التوصيل قبولها.
+
+        تفاصيل الطلب (DeliveryDriver/OrderDetails): تعرض تفاصيل كاملة عن الطلب (المنتجات، الكميات، عنوان التسليم، تعليمات خاصة، إلخ).
+
+        صفحة تتبع المسار (DeliveryDriver/TrackRoute): تعرض مسار التسليم على الخريطة وتسمح للسائق بتحديث حالة التسليم.
+
+        صفحة ملف التعريف (DeliveryDriver/Profile): تسمح لسائق التوصيل بتعديل معلوماته الشخصية (الصورة، رقم الهاتف، معلومات السيارة، إلخ).
+    */
+}

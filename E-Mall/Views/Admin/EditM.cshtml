@@ -1,0 +1,62 @@
+﻿@model E_Mall.Models.Merchant
+
+@{
+    ViewData["Title"] = "تعديل تاجر";
+    Layout = "_AdminLayout";
+}
+
+<link rel="stylesheet" href="~/css/MerchantManagement.css" />
+
+<div class="create-delivery-driver-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="EditM" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label class="control-label">الاسم الأول</label>
+            <input type="text" name="FirstName" class="form-control" value="@Model.User?.FirstName" required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">الاسم الأخير</label>
+            <input type="text" name="LastName" class="form-control" value="@Model.User?.LastName" required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">البريد الإلكتروني</label>
+            <input name="MerchantEmail" class="form-control" type="email" value="@Model.MerchantEmail" required />
+        </div>
+        <div class="form-group">
+            <label class="control-label">رقم الهاتف</label>
+            <input name="MerchantPhone" class="form-control" value="@Model.MerchantPhone" required />
+        </div>
+        <div class="form-group">
+            <label class="control-label">اسم المتجر</label>
+            <input name="StoreName" class="form-control" value="@Model.StoreName" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">رابط المتجر</label>
+            <input name="StoreLink" class="form-control" value="@Model.StoreLink" />
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" name="IsActive" type="checkbox" value="true" checked="@Model.IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="حفظ" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="MerchantManagement">العودة إلى القائمة</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

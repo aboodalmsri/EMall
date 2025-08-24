@@ -1,0 +1,263 @@
+﻿@model E_Mall.Models.Store
+
+@{
+    ViewData["Title"] = "صفحة المتجر";
+    Layout = "_CustomerLayout";
+    List<E_Mall.Models.Product> products = ViewBag.StoreProducts;
+}
+
+<link rel="stylesheet" href="~/css/StoreDetails.css" />
+
+<div class="header-container">
+    <div class="logo-container">
+        <div class="logo-circle">
+            <img src="@Url.Content($"/logos/{Model.Logo}")" alt="شعار المتجر" class="logo-image1">
+        </div>
+    </div>
+    <div class="header-content">
+        <h3 class="store-name">@Model.Name</h3>
+        <h1 class="main-title">استمتع بأفضل العروض</h1>
+        <p class="description">@Model.Description</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" class="social-icon" target="_blank">
+                <img src="@Url.Content("/img/facebook.png")" alt="Facebook">
+            </a>
+            <a href="https://instagram.com" class="social-icon" target="_blank">
+                <img src="@Url.Content("/img/instagram.png")" alt="Instagram">
+            </a>
+            <a href="https://whatsapp.com" class="social-icon" target="_blank">
+                <img src="@Url.Content("/img/whatsapp.png")" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- الفلتر المحدث -->
+<div class="filter-container">
+    <div class="product-filter" style="width: 100%; background-color: #f5f5f5; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- شريط البحث -->
+            <div class="search-bar" style="flex: 1; max-width: 30%;">
+                <input type="text" placeholder="ابحث عن منتج..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+            </div>
+            <!-- مدى السعر -->
+            <div class="price-range" style="flex: 1; max-width: 40%; text-align: center;">
+                <label>مدى السعر</label><br>
+                <input type="range" min="0" max="1000" value="0" id="minPrice" oninput="updatePrice()" style="width: 100%;">
+                <input type="range" min="0" max="1000" value="1000" id="maxPrice" oninput="updatePrice()" style="width: 100%;">
+                <div class="price-display" id="priceDisplay" style="font-size: 14px; margin-top: 5px;">0 - 1000 ريال</div>
+            </div>
+            <!-- اختيار الأصناف (Drop-down List محسّن) -->
+            <div class="category-select" style="flex: 1; max-width: 30%;">
+                <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; background-color: #fff; cursor: pointer;">
+                    <option value="" disabled selected>اختر الصنف</option>
+                    <option value="electronics">إلكترونيات</option>
+                    <option value="clothing">ملابس</option>
+                    <option value="books">كتب</option>
+                </select>
+            </div>
+        </div>
+        <!-- زر البحث -->
+        <button class="btn btn-primary">بحث</button>
+    </div>
+</div>
+
+<script>
+    function updatePrice() {
+        const minPrice = document.getElementById('minPrice').value;
+        const maxPrice = document.getElementById('maxPrice').value;
+        document.getElementById('priceDisplay').textContent = `${minPrice} - ${maxPrice} شيكل`;
+    }
+</script>
+
+<div class="products-container">
+    @foreach (var product in products)
+    {
+        <div class="product-card">
+            <img src="@Url.Content($"/products/{product.Image ?? "default-product.png"}")" alt="@product.Name" class="product-image">
+            <h3 class="product-name">@product.Name</h3>
+            <p class="product-price">@product.Price ريال</p>
+            <a asp-controller="Customer" asp-action="ProductDetails" asp-route-id="@product.Id" class="btn btn-primary">تفاصيل المنتج</a>
+            <form asp-action="AddToCart" asp-controller="Customer" method="post">
+                <input type="hidden" name="productId" value="@product.Id" />
+                <input type="number" name="quantity" value="1" min="1" />
+                <button type="submit">إضافة إلى العربة</button>
+            </form>
+        </div>
+    }
+</div>
+
+<a asp-controller="Customer" asp-action="Shops" class="btn btn-primary">الرجوع الى صفحة المتاجر</a>
+
+<!-- Add this after the header-container but before the filter-container -->
+<div class="rating-container">
+    <div class="store-rating">
+        <div class="rating-summary">
+            <div class="rating-average">@ViewBag.AverageRating</div>
+            <div class="rating-stars rating-display">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Convert.ToDouble(ViewBag.AverageRating ?? 0))
+                    {
+                        <span class="fa fa-star" style="color: #f8ce0b;"></span>
+                    }
+                    else
+                    {
+                        <span class="fa fa-star" style="color: #ccc;"></span>
+                    }
+                }
+            </div>
+            <div class="rating-count">(@ViewBag.ReviewCount تقييم)</div>
+        </div>
+
+        <form asp-controller="Customer" asp-action="AddReview" method="post" class="rating-form">
+            <input type="hidden" name="StoreId" value="@Model.Id" />
+
+            <div class="rating-stars">
+                <input type="radio" id="star5" name="Rating" value="5" /><label for="star5" class="fa fa-star"></label>
+                <input type="radio" id="star4" name="Rating" value="4" /><label for="star4" class="fa fa-star"></label>
+                <input type="radio" id="star3" name="Rating" value="3" /><label for="star3" class="fa fa-star"></label>
+                <input type="radio" id="star2" name="Rating" value="2" /><label for="star2" class="fa fa-star"></label>
+                <input type="radio" id="star1" name="Rating" value="1" /><label for="star1" class="fa fa-star"></label>
+            </div>
+
+            <textarea name="Comment" placeholder="أضف تعليقك حول المتجر (اختياري)"></textarea>
+
+            <button type="submit" class="btn btn-primary">إرسال التقييم</button>
+        </form>
+
+        @if (ViewBag.Reviews != null && ViewBag.Reviews.Count > 0)
+        {
+            <div class="existing-reviews">
+                <h4>التقييمات السابقة</h4>
+                @foreach (var review in ViewBag.Reviews)
+                {
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= review.Rating)
+                                    {
+                                        <span class="fa fa-star"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fa fa-star" style="color: #ccc;"></span>
+                                    }
+                                }
+                            </div>
+                            <div class="review-date">@review.CreatedAt.ToString("dd/MM/yyyy")</div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(review.Comment))
+                        {
+                            <p class="review-comment">@review.Comment</p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+<style>
+    .rating-container {
+        margin: 20px 0;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .store-rating {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .rating-stars {
+        direction: ltr;
+        display: inline-block;
+    }
+
+        .rating-stars input {
+            display: none;
+        }
+
+        .rating-stars label {
+            float: right;
+            color: #ccc;
+            font-size: 30px;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+
+            .rating-stars input:checked ~ label,
+            .rating-stars label:hover,
+            .rating-stars label:hover ~ label {
+                color: #f8ce0b;
+            }
+
+                .rating-stars input:checked + label:hover,
+                .rating-stars input:checked ~ label:hover,
+                .rating-stars label:hover ~ input:checked ~ label,
+                .rating-stars input:checked ~ label:hover ~ label {
+                    color: #f8ce0b;
+                }
+
+    .rating-summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .rating-average {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .rating-count {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .rating-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: vertical;
+        min-height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .existing-reviews {
+        margin-top: 30px;
+        text-align: right;
+    }
+
+    .review-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    .review-stars {
+        color: #f8ce0b;
+    }
+
+    .review-date {
+        color: #666;
+        font-size: 12px;
+    }
+</style>

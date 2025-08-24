@@ -1,0 +1,109 @@
+﻿/* ==========================================================================
+   About Us Styles
+   ========================================================================== */
+
+.about-us-page {
+    padding: 2rem;
+    font-family: sans-serif;
+    color: #555; /* Dark gray as the general text color */
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.08);
+}
+
+    .about-us-page h1,
+    .about-us-page h2,
+    .about-us-page h5 {
+        color: #625a4e; /* A Darker Tone*/
+    }
+
+    .about-us-page h2 {
+        font-size: 1.6rem; /*Scaling the size*/
+        margin-bottom: 1.5rem;
+    }
+
+    .about-us-page h5 {
+        font-size: 1.2rem;
+    }
+
+    .about-us-page p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align:right;
+    }
+    /*Visio Mission Values section Style*/
+    .about-us-page .card {
+        border: none;
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.06); /*Light box shadow*/
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+        background-color: #ffffff; /*MakeIt More Whitey*/
+    }
+        /*Customize element with Style HOVER*/
+        .about-us-page .card:hover {
+            transform: translateY(-0.25rem); /* Slightly lift upwards */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12); /*  Enhence shaddow with hover */
+        }
+
+    .about-us-page .card-body {
+        padding: 1.25rem; /*Scale spacing*/
+    }
+
+    .about-us-page ul {
+        list-style: none; /*Remove style like numbers and dotts*/
+        padding: 0;
+    }
+
+        .about-us-page ul li {
+            padding: 0.375rem 0; /* Add spacing between items */
+        }
+    /*Customize color*/
+    .about-us-page .btn-primary {
+        background-color: #625a4e;
+        border-color: #625a4e;
+        color: white;
+        padding: 0.8rem 1.5rem; /* scalePadding on Buttun and design*/
+        border-radius: 0.3rem;
+        margin-bottom: 10px;
+    }
+/*.dashboard-btn:hover used before so it is applied by default and we dont need write it*/
+/*Responsivnes for Mobile screens*/
+@media (max-width: 767px) {
+    .about-us-page {
+        padding: 1rem; /*More Compress size*/
+    }
+        /*Scaling text and elements*/
+        .about-us-page h1 {
+            font-size: 2rem; /* Reduce text title */
+            margin-bottom: 1.5rem;
+        }
+
+        .about-us-page h2 {
+            font-size: 1.3rem; /* Scale title sizes smaller screen*/
+            margin-bottom: 1rem;
+        }
+
+        .about-us-page p, .about-us-page li {
+            font-size: 0.9rem; /*Scale the fontsize*/
+        }
+        /*Adjust padding size to each card*/
+        .about-us-page .card-body {
+            padding: 1rem; /*Reduce size to adapt small screens*/
+        }
+
+        .about-us-page .btn-primary,
+        .about-us-page .btn-outline-primary {
+            font-size: 0.9rem; /*Reduce font size*/
+            padding: 0.6rem 1rem; /*Scale padding*/
+        }
+    /* Fix element text and center all*/
+    .test2 .card {
+        width: 100%;
+        text-align: center;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+        text-align: center;
+    }
+}

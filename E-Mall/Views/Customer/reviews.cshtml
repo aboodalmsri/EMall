@@ -1,0 +1,88 @@
+﻿@model E_Mall.Controllers.CustomerController.ReviewsViewModel  // IMPORTANT: Update with the correct namespace and ViewModel name
+
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "تقييماتي";
+}
+
+<link rel="stylesheet" href="~/css/reviews.css">
+
+<div class="reviews-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <h2>تقييمات المتاجر</h2>
+    @if (Model.StoreReviews != null && Model.StoreReviews.Any())
+    {
+        @foreach (var review in Model.StoreReviews)
+        {
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-product">
+                        <img src="~/logos/@review.Store.Logo" alt="صورة المتجر" class="review-product-image">
+                        <a asp-controller="Customer" asp-action="StoreDetails" asp-route-id="@review.Store.Id">@review.Store.Name</a>
+                    </div>
+                    <div class="review-date">
+                        <p>تاريخ التقييم: @review.CreatedAt.ToString("yyyy/MM/dd")</p>
+                    </div>
+                </div>
+                <div class="review-rating">
+                    @for (int i = 0; i < review.Rating; i++)
+                    {
+                        <span class="star">★</span>
+                    }
+                    @for (int i = review.Rating; i < 5; i++)
+                    {
+                        <span class="star">☆</span>
+                    }
+                </div>
+                <div class="review-comment">
+                    <p>
+                        @review.Comment
+                    </p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>لم تقم بتقديم أي تقييمات للمتاجر حتى الآن.</p>
+    }
+
+    <h2>تقييمات المنتجات</h2>
+    @if (Model.ProductReviews != null && Model.ProductReviews.Any())
+    {
+        @foreach (var review in Model.ProductReviews)
+        {
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-product">
+                        <img src="~/products/@review.Product.Image" alt="صورة المنتج" class="review-product-image">  <!-- Replace with your product image path -->
+                        <span>@review.Product.Name</span> <!-- Display product name -->
+                    </div>
+                    <div class="review-date">
+                        <p>تاريخ التقييم: @review.CreatedAt.ToString("yyyy/MM/dd")</p>
+                    </div>
+                </div>
+                <div class="review-rating">
+                    @for (int i = 0; i < review.Rating; i++)
+                    {
+                        <span class="star">★</span>
+                    }
+                    @for (int i = review.Rating; i < 5; i++)
+                    {
+                        <span class="star">☆</span>
+                    }
+                </div>
+                <div class="review-comment">
+                    <p>
+                        @review.Comment
+                    </p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>لم تقم بتقديم أي تقييمات للمنتجات حتى الآن.</p>
+    }
+</div>

@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_DeliveryLayout";
+
+    ViewData["Title"] = "تتبع المسار";
+}
+
+<link rel="stylesheet" href="~/css/trackroute.css">
+
+<div class="track-route-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="map-container">
+        <!-- Replace this with your actual map code (Google Maps, Leaflet, etc.) -->
+        <img src="https://via.placeholder.com/800x400" alt="خريطة وهمية" class="map-image">
+    </div>
+
+    <div class="order-info">
+        <h2>معلومات الطلب</h2>
+        <p>رقم الطلب: #2024006</p>
+        <p>الزبون: Layla Ahmed</p>
+        <p>عنوان التسليم: الرياض، حي الصحافة</p>
+    </div>
+
+    <div class="update-status">
+        <h2>تحديث حالة التسليم</h2>
+        <select class="form-control">
+            <option>في الطريق</option>
+            <option selected>تم التوصيل</option>
+            <option>تأخير</option>
+        </select>
+        <button class="btn btn-success">تحديث الحالة</button>
+    </div>
+</div>

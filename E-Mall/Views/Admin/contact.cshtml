@@ -1,0 +1,177 @@
+﻿@model IEnumerable<E_Mall.Models.Contact>
+@{
+    ViewData["Title"] = "إدارة البلاغات";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">User Feedback Messages</h5>
+        </div>
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var feedback in Model)
+                            {
+                                <tr>
+                                    <td>@feedback.id</td>
+                                    <td>@feedback.Name</td>
+                                    <td>@feedback.Email</td>
+                                    <td>@feedback.Subject</td>
+                                    <td>@(feedback.CreatedAt.ToString("yyyy-MM-dd HH:mm") ?? "N/A")</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#viewModal-@feedback.id">
+                                            <i class="fa fa-eye"></i> View
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#replyModal-@feedback.id">
+                                            <i class="fa fa-reply"></i> Reply
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal-@feedback.id">
+                                            <i class="fa fa-trash"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <!-- View Modal -->
+                                <div class="modal fade" id="viewModal-@feedback.id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Feedback Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <strong>Name:</strong> @feedback.Name
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>Email:</strong> @feedback.Email
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>Subject:</strong> @feedback.Subject
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>Message:</strong>
+                                                    <p class="mt-2 p-3 bg-light">@feedback.Message</p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>Date:</strong> @(feedback.CreatedAt.ToString("yyyy-MM-dd HH:mm") ?? "N/A")
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Reply Modal -->
+                                <div class="modal fade" id="replyModal-@feedback.id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form asp-action="ReplyTocontact" asp-route-id="@feedback.id" method="post">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Reply to @feedback.Name</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <strong>To:</strong> @feedback.Email
+                                                        <input type="hidden" name="Email" value="@feedback.Email" />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="subject" class="form-label">Subject</label>
+                                                        <input type="text" class="form-control" id="subject" name="Subject"
+                                                               value="RE: @feedback.Subject" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="replyMessage" class="form-label">Reply Message</label>
+                                                        <textarea class="form-control" id="replyMessage" name="Message"
+                                                                  rows="5" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-primary">Send Reply</button>
+                                                </div>
+                                                @Html.AntiForgeryToken()
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="deleteModal-@feedback.id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Confirm Deletion</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to delete the feedback from @feedback.Name?</p>
+                                                <p class="text-danger fw-bold">This action cannot be undone.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <form asp-action="Deletecontact" asp-route-id="@feedback.id" method="post">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    @Html.AntiForgeryToken()
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle me-2"></i> No feedback messages found.
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function() {
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+        });
+    </script>
+}

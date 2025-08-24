@@ -1,0 +1,202 @@
+﻿@model E_Mall.Models.Offer
+
+@{
+    Layout = "_MerchantLayout";
+    ViewData["Title"] = "حذف العرض";
+}
+
+<div class="offer-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="alert alert-danger">
+        <h3>هل أنت متأكد من رغبتك في حذف هذا العرض؟</h3>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>@Model.Name</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">نوع العرض</dt>
+                <dd class="col-sm-9">@Model.Type</dd>
+
+                <dt class="col-sm-3">قيمة العرض</dt>
+                <dd class="col-sm-9">@Model.Value @(Model.Type == "خصم على المنتج" ? "%" : "ر.س")</dd>
+
+                <dt class="col-sm-3">تاريخ البداية</dt>
+                <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-3">تاريخ الانتهاء</dt>
+                <dd class="col-sm-9">@Model.EndDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-3">حالة العرض</dt>
+                <dd class="col-sm-9">
+                    @if (Model.IsActive)
+                    {
+                        <span class="badge badge-success">نشط</span>
+                    }
+                    else if (DateTime.Now < Model.StartDate)
+                    {
+                        <span class="badge badge-warning">لم يبدأ بعد</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">منتهي</span>
+                    }
+                </dd>
+
+                @if (Model.Type == "كوبون ترويجي")
+                {
+                    <dt class="col-sm-3">كود الكوبون</dt>
+                    <dd class="col-sm-9">@Model.CouponCode</dd>
+                }
+
+                <dt class="col-sm-3">عدد الاستخدامات</dt>
+                <dd class="col-sm-9">@Model.UsageCount</dd>
+
+                <dt class="col-sm-3">المبلغ الإجمالي للخصومات</dt>
+                <dd class="col-sm-9">@Model.TotalDiscountAmount ر.س</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <form asp-action="DeleteO" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">تأكيد الحذف</button>
+                <a asp-action="offermanagement" class="btn btn-secondary">إلغاء</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+// 10. عاشرًا - إضافة جافاسكريبت للتحقق من صلاحية الكوبونات في واجهة المستخدم
+// wwwroot/js/coupon-validator.js
+$(document).ready(function() {
+    // دالة للتحقق من صلاحية الكوبون
+    function validateCoupon(code) {
+        if (!code) {
+            return;
+        }
+
+        $.ajax({
+            url: '/Offer/ValidateCoupon',
+            type: 'GET',
+            data: { code: code },
+            success: function(response) {
+                if (response.valid) {
+                    $('.coupon-result').html(
+                        `<div class="alert alert-success">
+    <strong>الكوبون صالح!</strong> ${response.message}<br>
+    العرض: ${response.offerName}<br>
+    قيمة الخصم: ${response.discountValue} ر.س
+</div>`
+                    );
+
+                    // يمكن هنا تطبيق الخصم على سلة المشتريات
+                    applyCouponDiscount(response.discountValue);
+                } else {
+                    $('.coupon-result').html(
+                        `<div class="alert alert-danger">
+    <strong>الكوبون غير صالح!</strong> ${response.message}
+</div>`
+                    );
+
+                    // إزالة أي خصم تم تطبيقه سابقًا
+                    removeCouponDiscount();
+                }
+            },
+            error: function() {
+                $('.coupon-result').html(
+                    `<div class="alert alert-danger">
+    <strong>خطأ!</strong> حدث خطأ أثناء التحقق من الكوبون. الرجاء المحاولة لاحقًا.
+</div>`
+                );
+            }
+        });
+    }
+
+    // تطبيق الخصم على المبلغ الإجمالي في سلة المشتريات
+    function applyCouponDiscount(discountValue) {
+        // هنا يتم تطبيق الخصم على المبلغ الإجمالي
+        // هذه مجرد عينة، يجب تعديلها حسب هيكل التطبيق الخاص بك
+        let totalElement = $('#cart-total');
+        let originalTotal = parseFloat($('#cart-original-total').val());
+        let newTotal = originalTotal - discountValue;
+
+        if (newTotal < 0) {
+            newTotal = 0;
+        }
+
+        totalElement.text(newTotal.toFixed(2) + ' ر.س');
+        $('#discount-amount').text(discountValue.toFixed(2) + ' ر.س');
+        $('#has-coupon').val('true');
+        $('#coupon-discount').val(discountValue);
+    }
+
+    // إزالة الخصم المطبق
+    function removeCouponDiscount() {
+        let totalElement = $('#cart-total');
+        let originalTotal = parseFloat($('#cart-original-total').val());
+
+        totalElement.text(originalTotal.toFixed(2) + ' ر.س');
+        $('#discount-amount').text('0.00 ر.س');
+        $('#has-coupon').val('false');
+        $('#coupon-discount').val(0);
+    }
+
+    // معالجة النقر على زر التحقق من الكوبون
+    $('#verify-coupon').click(function(e) {
+        e.preventDefault();
+        let couponCode = $('#coupon-code').val();
+        validateCoupon(couponCode);
+    });
+
+    // التحقق عند الضغط على Enter
+    $('#coupon-code').keypress(function(e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            let couponCode = $(this).val();
+            validateCoupon(couponCode);
+        }
+    });
+});
+
+
+
+
+@* <div class="coupon-section"> *@
+@*     <h3>هل لديك كوبون خصم؟</h3> *@
+@*     <div class="input-group"> *@
+@*         <input type="text" id="coupon-code" class="form-control" placeholder="أدخل كود الكوبون" /> *@
+@*         <div class="input-group-append"> *@
+@*             <button id="verify-coupon" class="btn btn-primary">تطبيق</button> *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="coupon-result mt-2"> *@
+@*         <!-- هنا ستظهر نتيجة التحقق من الكوبون --> *@
+@*     </div> *@
+
+@*     <!-- حقول مخفية لتخزين معلومات الخصم --> *@
+@*     <input type="hidden" id="has-coupon" name="hasCoupon" value="false" /> *@
+@*     <input type="hidden" id="coupon-discount" name="couponDiscount" value="0" /> *@
+@*     <input type="hidden" id="cart-original-total" value="500.00" /> <!-- يجب تعديل هذه القيمة ديناميكيًا --> *@
+@* </div> *@
+
+@* <div class="cart-summary"> *@
+@*     <div class="row"> *@
+@*         <div class="col-6">المجموع:</div> *@
+@*         <div class="col-6 text-end">500.00 ر.س</div> *@
+@*     </div> *@
+@*     <div class="row"> *@
+@*         <div class="col-6">الخصم:</div> *@
+@*         <div class="col-6 text-end" id="discount-amount">0.00 ر.س</div> *@
+@*     </div> *@
+@*     <div class="row font-weight-bold"> *@
+@*         <div class="col-6">الإجمالي:</div> *@
+@*         <div class="col-6 text-end" id="cart-total">500.00 ر.س</div> *@
+@*     </div> *@
+@* </div> *@
+
+@* @section Scripts { *@
+@*     <script src="~/js/coupon-validator.js"></script> *@
+@* } *@

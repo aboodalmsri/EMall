@@ -1,0 +1,63 @@
+﻿@model E_Mall.Models.DeliveryDriver
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "تعديل سائق التوصيل";
+}
+
+<link rel="stylesheet" href="~/css/create-delivery-driver.css" />
+
+<div class="create-delivery-driver-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label class="control-label">الاسم الأول</label>
+            <input type="text" name="FirstName" class="form-control" value="@Model.User?.FirstName" required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">الاسم الأخير</label>
+            <input type="text" name="LastName" class="form-control" value="@Model.User?.LastName" required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">البريد الإلكتروني</label>
+            <input name="DriverEmail" class="form-control" type="email" value="@Model.DriverEmail" required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">رقم الهاتف</label>
+            <input name="DriverPhone" class="form-control" value="@Model.DriverPhone" required />
+        </div>
+        <div class="form-group">
+            <label class="control-label">معلومات السيارة</label>
+            <input name="DriverCarInfo" class="form-control" value="@Model.DriverCarInfo" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">منطقة التغطية</label>
+            <input name="CoverageArea" class="form-control" value="@Model.CoverageArea" required />
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" name="IsActive" type="checkbox" value="true" @(Model.IsActive ? "checked" : "") /> @Html.DisplayNameFor(model => model.IsActive)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="حفظ" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="DeliveryDriverManagement">العودة إلى القائمة</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

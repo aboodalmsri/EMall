@@ -1,0 +1,61 @@
+﻿/* ==========================================================================
+   Delivery Drivers Styles (Customer View)
+   ========================================================================== */
+
+.delivery-drivers-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.delivery-driver-list-section {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.driver-card {
+    padding: 15px;
+    background-color: #e1dbd4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center; /* Align content in the center */
+}
+
+.driver-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover; /* Cover the area */
+    margin-bottom: 10px;
+}
+
+.driver-rating {
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 1.2em;
+    color: #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .delivery-drivers-container {
+        padding: 15px;
+    }
+
+    .driver-card {
+        margin-bottom: 15px;
+    }
+
+    .driver-image {
+        max-width: 120px; /* Smaller images for mobile */
+    }
+}

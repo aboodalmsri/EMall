@@ -1,0 +1,85 @@
+﻿@model E_Mall.Models.OfferViewModel
+
+@{
+    Layout = "_MerchantLayout";
+    ViewData["Title"] = "تعديل العرض";
+}
+
+<div class="offer-management-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="offer-creation-section">
+        <form asp-action="EditO" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" placeholder="ادخل اسم العرض" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Type"></label>
+                <select asp-for="Type" class="form-control">
+                    <option value="">-- اختر نوع العرض --</option>
+                    <option>خصم على المنتج</option>
+                    <option>شحن مجاني</option>
+                    <option>كوبون ترويجي</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Value"></label>
+                <input asp-for="Value" class="form-control" placeholder="ادخل قيمة العرض" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StartDate"></label>
+                <input asp-for="StartDate" class="form-control" type="date" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EndDate"></label>
+                <input asp-for="EndDate" class="form-control" type="date" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary dashboard-btn">حفظ التغييرات</button>
+                <a asp-action="offermanagement" class="btn btn-secondary">العودة للقائمة</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function() {
+            // تحديث نص قيمة العرض بناءً على النوع المحدد
+            function updateValueLabel() {
+                let selectedType = $("#Type").val();
+                let valueLabel = $("label[for='Value']");
+
+                if (selectedType === "خصم على المنتج") {
+                    valueLabel.text("قيمة الخصم (%)");
+                } else if (selectedType === "كوبون ترويجي" || selectedType === "شحن مجاني") {
+                    valueLabel.text("قيمة الخصم (ر.س)");
+                }
+            }
+
+            // تطبيق عند التحميل
+            updateValueLabel();
+
+            // تطبيق عند التغيير
+            $("#Type").change(updateValueLabel);
+        });
+    </script>
+}
